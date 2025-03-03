@@ -8,7 +8,6 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ResourcesPage from './pages/ResourcesPage';
 import Footer from './components/Footer';
-import { ThemeProvider } from './contexts/ThemeContext';
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -18,21 +17,19 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <ThemeProvider>
-        <Router>
-          <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-            <NavBar />
-            <main className="container mx-auto px-4 py-8">
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/resources" element={<ResourcesPage />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        </Router>
-      </ThemeProvider>
+      <Router>
+        <div className="min-h-screen bg-white text-gray-900">
+          <NavBar />
+          <main className="container mx-auto px-4 py-8">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/resources" element={<ResourcesPage />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
     </TooltipProvider>
   </QueryClientProvider>
 );
