@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Robot, User, ArrowRightLeft, ArrowRight, RefreshCw } from 'lucide-react';
+import { Bot, User, ArrowRightLeft, ArrowRight, RefreshCw } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type StageVisualizationProps = {
@@ -48,7 +48,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                 transition={{ delay: 0.3, duration: 0.5 }}
               >
                 <div className="bg-robot-blue p-3 rounded-lg shadow-lg shadow-robot-blue/30 flex items-center justify-center">
-                  <Robot className="w-8 h-8 text-white" />
+                  <Bot className="w-8 h-8 text-white" />
                 </div>
                 <p className="text-xs text-gray-600 font-medium">Robot Zone</p>
               </motion.div>
@@ -112,7 +112,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             >
               <div className="flex flex-col items-center space-y-2">
                 <div className="bg-robot-blue p-3 rounded-lg shadow-lg shadow-robot-blue/30 flex items-center justify-center">
-                  <Robot className="w-8 h-8 text-white" />
+                  <Bot className="w-8 h-8 text-white" />
                 </div>
                 <p className="text-xs text-gray-600 font-medium">Independent work</p>
               </div>
@@ -171,7 +171,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             >
               <div className="flex flex-col items-center space-y-2">
                 <div className="bg-robot-blue p-3 rounded-lg shadow-lg shadow-robot-blue/30 flex items-center justify-center">
-                  <Robot className="w-8 h-8 text-white" />
+                  <Bot className="w-8 h-8 text-white" />
                 </div>
                 <motion.div 
                   className="px-2 py-1 bg-blue-100 rounded text-xs"
@@ -254,7 +254,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             >
               <div className="flex flex-col items-center space-y-2">
                 <div className="bg-robot-blue p-3 rounded-lg shadow-lg shadow-robot-blue/30 flex items-center justify-center">
-                  <Robot className="w-8 h-8 text-white" />
+                  <Bot className="w-8 h-8 text-white" />
                 </div>
                 <p className="text-xs text-gray-600 font-medium">Task A</p>
               </div>
@@ -368,7 +368,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             >
               <div className="flex flex-col items-center space-y-2">
                 <div className="bg-robot-blue p-3 rounded-lg shadow-lg shadow-robot-blue/30 flex items-center justify-center">
-                  <Robot className="w-8 h-8 text-white" />
+                  <Bot className="w-8 h-8 text-white" />
                 </div>
                 <motion.div
                   className="px-2 py-1 bg-blue-100 rounded text-xs"
