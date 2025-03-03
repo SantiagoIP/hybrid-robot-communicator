@@ -6,7 +6,6 @@ import StageVisualization from '@/components/StageVisualization';
 import StageDetail from '@/components/StageDetail';
 import ProgressTracker from '@/components/ProgressTracker';
 import References from '@/components/References';
-import Footer from '@/components/Footer';
 import { ArrowRight, Users, Clock, Handshake, Layers, AlertCircle, Zap } from 'lucide-react';
 
 const stages = ['cell', 'coexistence', 'synchronised', 'cooperation', 'collaboration', 'coevolution'];
@@ -165,8 +164,6 @@ const HomePage = () => {
           </div>
         </div>
       </motion.div>
-
-      <Footer />
     </div>
   );
 };

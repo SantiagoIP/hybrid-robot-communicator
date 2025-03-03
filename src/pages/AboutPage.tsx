@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import NavBar from '@/components/NavBar';
-import Footer from '@/components/Footer';
 
 const AboutPage = () => {
   useEffect(() => {
@@ -85,8 +84,6 @@ const AboutPage = () => {
           </motion.div>
         </div>
       </motion.div>
-
-      <Footer />
     </div>
   );
 };

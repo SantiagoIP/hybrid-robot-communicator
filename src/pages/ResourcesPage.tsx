@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import NavBar from '@/components/NavBar';
-import Footer from '@/components/Footer';
 import { ExternalLink, BookOpen, FileText, Video, Download, Mail } from 'lucide-react';
 
 const ResourcesPage = () => {
@@ -178,8 +177,6 @@ const ResourcesPage = () => {
           </div>
         </div>
       </motion.div>
-
-      <Footer />
     </div>
   );
 };

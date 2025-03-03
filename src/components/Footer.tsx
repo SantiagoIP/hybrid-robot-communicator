@@ -12,7 +12,13 @@ const Footer = () => {
       <div className="px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-sm text-gray-600">© Robot Integration Project</p>
+            <h3 className="text-lg font-semibold mb-2">
+              <span className="text-human-darkGreen">Human</span>-<span className="text-robot-darkBlue">Robot</span> Collaboration in Teams
+            </h3>
+            <p className="text-sm text-gray-600">
+              Exploring the evolution of human-robot collaboration from isolation to full integration.
+            </p>
+            <p className="text-sm text-gray-600 mt-2">© Robot Integration Project</p>
           </div>
           <div className="flex items-center">
             <a href="https://github.com/SantiagoIP" className="text-gray-600 hover:text-primary transition-colors">
