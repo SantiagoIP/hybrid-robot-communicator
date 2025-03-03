@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -31,7 +30,7 @@ const NavBar = () => {
               </svg>
             </div>
             <span className="font-bold text-lg bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
-              Robot Integration
+              <span className="text-human-darkGreen">Human</span>-<span className="text-robot-darkBlue">Robot</span> Collaboration
             </span>
           </Link>
           <nav className="hidden md:flex items-center space-x-8">

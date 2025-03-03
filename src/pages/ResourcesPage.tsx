@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import NavBar from '@/components/NavBar';
@@ -170,15 +169,6 @@ const ResourcesPage = () => {
                           <h3 className="font-semibold text-gray-800">{item.title}</h3>
                           <p className="text-sm text-gray-600">{item.author} ({item.year})</p>
                         </div>
-                        <a 
-                          href={item.link} 
-                          className="text-blue-600 hover:text-blue-800 transition-colors flex items-center text-sm"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <span className="mr-1">View</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
                       </div>
                     </motion.div>
                   ))}
@@ -186,25 +176,6 @@ const ResourcesPage = () => {
               </motion.div>
             ))}
           </div>
-
-          <motion.div
-            className="glass-card rounded-xl p-6 mt-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
-            <h2 className="text-xl font-bold text-gray-800 mb-4">Contact the author</h2>
-            <p className="text-gray-700 mb-4">
-              Hi I'm Santiago Pavon, and I'm a curious learner on HRI, robotics and AI. Feel free to contact me if you have any questions, ideas or comments over what you have seen on the page.
-            </p>
-            <a 
-              href="mailto:santiagopavon10@icloud.com" 
-              className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              <Mail className="w-4 h-4 mr-2" />
-              Contact
-            </a>
-          </motion.div>
         </div>
       </motion.div>
 

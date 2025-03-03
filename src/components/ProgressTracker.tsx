@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -43,7 +42,7 @@ const ProgressTracker: React.FC<ProgressTrackerProps> = ({
               >
                 <motion.div
                   className={cn(
-                    "w-8 h-8 rounded-full flex items-center justify-center mb-2 transition-colors",
+                    "w-10 h-10 rounded-full flex items-center justify-center mb-2 text-lg transition-colors",
                     isPast
                       ? "bg-primary text-white shadow-md shadow-primary/20"
                       : "bg-white border-2 border-gray-300 text-gray-400"

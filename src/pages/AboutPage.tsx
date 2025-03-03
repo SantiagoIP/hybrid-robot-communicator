@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import NavBar from '@/components/NavBar';
@@ -61,11 +60,28 @@ const AboutPage = () => {
               <li>Task allocation and workflow design</li>
               <li>Technical requirements for implementation</li>
             </ul>
-            
-            <h3 className="text-xl font-semibold mb-3 text-gray-800">Future Directions</h3>
-            <p className="text-gray-700">
-              As technology continues to evolve, we expect to see more sophisticated forms of human-robot collaboration emerging. Areas of particular interest include natural language interaction, intuitive gesture recognition, shared autonomy frameworks, and adaptive collaborative behaviors. This project will be updated as new research and applications in this field develop.
-            </p>
+
+            {/* Contact Information */}
+            <motion.section
+              className="mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <h3 className="text-xl font-semibold mb-3 text-gray-800">Contact the author</h3>
+              <p className="text-gray-700 mb-4">
+                Hi I'm Santiago Pavon, and I'm a curious learner on HRI, robotics and AI. Feel free to contact me if you have any questions, ideas or comments over what you have seen on the page.
+              </p>
+              <a 
+                href="mailto:santiagopavon10@icloud.com" 
+                className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Contact
+              </a>
+            </motion.section>
           </motion.div>
         </div>
       </motion.div>

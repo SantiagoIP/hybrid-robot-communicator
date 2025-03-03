@@ -32,70 +32,48 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
     switch (stage) {
       case 'cell':
         return (
-          <div className="relative w-full h-full flex items-center justify-center">
-            {/* Isolation Stage - Separate Work Areas */}
-            <motion.div 
-              className="absolute w-[80%] h-[60%] flex items-center justify-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <motion.div 
-                className="absolute left-1/2 top-1/2 transform -translate-x-[75%] -translate-y-1/2 border-2 border-dashed border-gray-300 rounded-lg p-8 bg-white/50"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <motion.div
-                  className="flex flex-col items-center space-y-4"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
-                >
-                  <div className="bg-robot-blue p-4 rounded-lg shadow-lg shadow-robot-blue/30 flex items-center justify-center">
-                    <Bot className="w-8 h-8 text-white" />
-                  </div>
-                  <p className="text-sm text-gray-800 font-medium bg-white/90 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">Robot Zone</p>
-                </motion.div>
-              </motion.div>
-
-              <motion.div 
-                className="absolute left-1/2 top-1/2 transform translate-x-[25%] -translate-y-1/2 border-2 border-dashed border-gray-300 rounded-lg p-8 bg-white/50"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <motion.div
-                  className="flex flex-col items-center space-y-4"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
-                >
-                  <div className="bg-human-green p-4 rounded-full shadow-lg shadow-human-green/30 flex items-center justify-center">
-                    <User className="w-8 h-8 text-white" />
-                  </div>
-                  <p className="text-sm text-gray-800 font-medium bg-white/90 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">Human Zone</p>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-            <motion.div 
-              className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-sm text-gray-600 shadow-md border border-gray-100"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-            >
+          <div className="relative w-full h-full flex flex-col items-center justify-center p-6 bg-blue-50/50 rounded-xl">
+            {/* Title at the top */}
+            <div className="mb-8 bg-white px-4 py-2 rounded-full text-sm text-gray-700 font-medium shadow-sm border border-gray-100 mx-auto">
+              Separate spaces
+            </div>
+            
+            {/* Icons container */}
+            <div className="flex items-center justify-center w-full space-x-16 mb-6">
+              {/* Robot Zone */}
+              <div className="flex flex-col items-center">
+                <div className="bg-robot-blue p-4 rounded-lg shadow-lg shadow-robot-blue/30 flex items-center justify-center mb-4">
+                  <Bot className="w-8 h-8 text-white" />
+                </div>
+                <div className="bg-white px-4 py-2 rounded-full text-sm text-gray-700 font-medium shadow-sm border border-gray-100">
+                  Robot Zone
+                </div>
+              </div>
+              
+              {/* Human Zone */}
+              <div className="flex flex-col items-center">
+                <div className="bg-human-green p-4 rounded-full shadow-lg shadow-human-green/30 flex items-center justify-center mb-4">
+                  <User className="w-8 h-8 text-white" />
+                </div>
+                <div className="bg-white px-4 py-2 rounded-full text-sm text-gray-700 font-medium shadow-sm border border-gray-100">
+                  Human Zone
+                </div>
+              </div>
+            </div>
+            
+            {/* Description at bottom */}
+            <div className="mt-4 bg-white px-4 py-2 rounded-full text-sm text-gray-700 font-medium shadow-sm border border-gray-100 mx-auto">
               Completely separated operation
-            </motion.div>
+            </div>
           </div>
         );
       
       case 'coexistence':
         return (
-          <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-64 flex items-center justify-center">
             {/* Coexistence Stage - Shared Environment */}
             <motion.div 
-              className="absolute w-[80%] h-[60%] rounded-xl bg-workspace-peach/50 flex items-center justify-center border border-workspace-peach/80"
+              className="absolute inset-0 rounded-xl bg-workspace-peach/50 flex items-center justify-center border border-workspace-peach/80"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
@@ -111,7 +89,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.div>
             
             <motion.div 
-              className="absolute left-1/2 top-1/2 transform -translate-x-[60%] -translate-y-1/2"
+              className="absolute left-[25%] top-[35%] transform -translate-x-1/2 -translate-y-1/2"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -125,7 +103,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.div>
             
             <motion.div 
-              className="absolute left-1/2 top-1/2 transform translate-x-[20%] -translate-y-1/2"
+              className="absolute right-[25%] top-[35%] transform translate-x-1/2 -translate-y-1/2"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -139,7 +117,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.div>
 
             <motion.div 
-              className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-sm text-gray-600 shadow-md border border-gray-100 z-10"
+              className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-sm text-gray-600 shadow-md border border-gray-100 z-10"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}

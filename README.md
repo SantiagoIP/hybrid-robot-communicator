@@ -1,69 +1,75 @@
-# Welcome to your Lovable project
+# Human-Robot Collaboration in Teams
 
-## Project info
+An interactive web application exploring the evolution of human-robot collaboration, from isolated operations to advanced co-evolutionary integration.
 
-**URL**: https://lovable.dev/projects/f2db78fe-85f8-456a-bd8d-ee3331bc277a
+## Overview
 
-## How can I edit this code?
+This project presents a comprehensive model of human-robot interaction stages, demonstrating the progression from completely separate workspaces to collaborative environments where humans and robots work together seamlessly.
 
-There are several ways of editing your application.
+### Stages of Evolution
 
-**Use Lovable**
+1. **Cell (Isolation)**: Robots and humans operate in completely separate spaces
+2. **Coexistence**: Shared environment with independent work
+3. **Synchronised**: Shared workspace with time-separated operations
+4. **Cooperation**: Simultaneous work on separate tasks
+5. **Collaboration**: Joint work on shared tasks
+6. **Co-evolution**: Advanced integration with mutual learning and adaptation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f2db78fe-85f8-456a-bd8d-ee3331bc277a) and start prompting.
+## Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- Interactive stage visualization
+- Detailed explanations of each collaboration stage
+- Progress tracker for easy navigation
+- Responsive design for all devices
+- Modern, clean user interface
 
-**Use your preferred IDE**
+## Technology Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Lucide Icons
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Getting Started
 
-Follow these steps:
+### Prerequisites
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- Node.js (v14 or higher)
+- npm or yarn
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Installation
 
-# Step 3: Install the necessary dependencies.
-npm i
+1. Clone the repository:
+```bash
+git clone https://github.com/SantiagoIP/hybrid-robot-communicator.git
+cd hybrid-robot-communicator
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open your browser and visit `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Building for Production
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## License
 
-## What technologies are used for this project?
+© Robot Integration Project. All rights reserved.
 
-This project is built with .
+## Contact
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f2db78fe-85f8-456a-bd8d-ee3331bc277a) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+For inquiries, please contact Santiago Pavon.
+GitHub: [SantiagoIP](https://github.com/SantiagoIP)

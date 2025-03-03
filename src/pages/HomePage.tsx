@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import NavBar from '@/components/NavBar';
@@ -60,13 +59,13 @@ const HomePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
-              Robot Integration in Human-Machine Teams
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="text-human-darkGreen">Human</span>-<span className="text-robot-darkBlue">Robot</span> Collaboration in Teams
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-3">
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-3">
               Explore the evolution of human-robot collaboration from isolated operation to seamless integration.
             </p>
-            <p className="text-base text-gray-500 max-w-2xl mx-auto">
+            <p className="text-base text-gray-500 max-w-3xl mx-auto">
               This model illustrates the progression of human-robot interaction, from completely separate workspaces to collaborative environments where humans and robots work together on shared tasks.
             </p>
           </motion.div>
@@ -151,7 +150,7 @@ const HomePage = () => {
           >
             <h2 className="text-2xl font-bold mb-4 text-gray-800">Understanding the Evolution</h2>
             <p className="text-gray-700 mb-4">
-              The progression from isolated robotics to collaborative human-robot teams represents a significant evolution in automation technology. Each stage builds upon the previous one, enabling more sophisticated interactions and greater productivity.
+              The progression from isolated robotics to co-evolutionary human-robot teams represents a significant evolution in automation technology. Each stage builds upon the previous one, enabling more sophisticated interactions and greater productivity.
             </p>
             <p className="text-gray-700 mb-4">
               As sensors, artificial intelligence, and robot design continue to advance, we're seeing increasingly seamless integration between humans and machines. The final co-evolution stage enables truly synergistic workflows where robots and humans not only collaborate but also evolve and adapt together over time.

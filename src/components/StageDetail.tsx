@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -134,26 +133,30 @@ const StageDetail: React.FC<StageDetailProps> = ({ stage, isActive }) => {
     },
     coevolution: {
       title: 'Co-evolution',
-      description: 'The most advanced stage of integration, co-evolution represents a highly connected, dynamic, and continuously evolving relationship between humans and robots. Both agents adapt to each other over time, building mutual understanding through shared experiences and learning. This is the author\'s own conceptual model, developed through research, and extends beyond traditional human-robot interaction frameworks found in current literature.',
+      description: 'This stage represents the author\'s own conceptual model for future human-robot integration, extending beyond traditional frameworks found in current literature. In this proposed advanced stage, robots would operate with greater freedom and autonomy while maintaining strong interconnection with humans. Robots could learn and evolve in their work, leading to better performance and adaptation. The workplace would become a unified system where responsibility is shared, and errors are tracked holistically rather than being attributed to individual agents. Robots would develop the ability to emulate human preferences and communication styles, fostering improved teamwork capacity and trust-building relationships.',
       humanCapabilities: [
-        'Natural, intuitive communication with robotic systems',
-        'Shared responsibility and decision-making',
-        'Enhanced productivity and creativity through partnership'
+        'Building trust through consistent interaction',
+        'Sharing responsibility for system-wide outcomes',
+        'Guiding robot learning and adaptation',
+        'Contributing to collective knowledge building'
       ],
       robotCapabilities: [
-        'Learning and adapting to new scenarios autonomously',
+        'Operating with increased autonomy and freedom',
+        'Learning and evolving from work experiences',
         'Emulating human preferences and work styles',
-        'High independence with human-like adaptability'
+        'Contributing to system-wide performance tracking'
       ],
       communication: [
-        'Fluid, multi-modal, and barrier-free interaction',
-        'Shared objectives and principles',
-        'Mutual understanding built over time'
+        'Deep learning-based interaction patterns',
+        'Adaptive communication styles matching humans',
+        'Shared responsibility frameworks',
+        'Continuous feedback and learning loops'
       ],
       examples: [
-        'Robots that learn from and evolve with their human counterparts',
-        'Advanced manufacturing where robots and humans share equal responsibility',
-        'Strategic-level human-machine teams with shared decision-making'
+        'Self-improving manufacturing systems',
+        'Adaptive service robots in healthcare',
+        'Learning-enabled collaborative research',
+        'Trust-based human-robot partnerships'
       ]
     }
   };
