@@ -134,7 +134,7 @@ const StageDetail: React.FC<StageDetailProps> = ({ stage, isActive }) => {
     },
     coevolution: {
       title: 'Co-evolution',
-      description: 'The most advanced stage of integration, co-evolution represents a highly connected, dynamic, and continuously evolving relationship between humans and robots. Both agents adapt to each other over time, building mutual understanding through shared experiences and learning.',
+      description: 'The most advanced stage of integration, co-evolution represents a highly connected, dynamic, and continuously evolving relationship between humans and robots. Both agents adapt to each other over time, building mutual understanding through shared experiences and learning. This is the author\'s own conceptual model, developed through research, and extends beyond traditional human-robot interaction frameworks found in current literature.',
       humanCapabilities: [
         'Natural, intuitive communication with robotic systems',
         'Shared responsibility and decision-making',

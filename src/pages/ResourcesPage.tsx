@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
-import { ExternalLink, BookOpen, FileText, Video, Download } from 'lucide-react';
+import { ExternalLink, BookOpen, FileText, Video, Download, Mail } from 'lucide-react';
 
 const ResourcesPage = () => {
   useEffect(() => {
@@ -193,15 +193,16 @@ const ResourcesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <h2 className="text-xl font-bold text-gray-800 mb-4">Request Additional Resources</h2>
+            <h2 className="text-xl font-bold text-gray-800 mb-4">Contact the author</h2>
             <p className="text-gray-700 mb-4">
-              If you're looking for specific resources on human-robot collaboration that aren't listed here, please feel free to reach out. We're continually updating our resource library.
+              Hi I'm Santiago Pavon, and I'm a curious learner on HRI, robotics and AI. Feel free to contact me if you have any questions, ideas or comments over what you have seen on the page.
             </p>
             <a 
-              href="#" 
+              href="mailto:santiagopavon10@icloud.com" 
               className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Contact Us
+              <Mail className="w-4 h-4 mr-2" />
+              Contact
             </a>
           </motion.div>
         </div>
