@@ -21,6 +21,7 @@ const ProgressTracker: React.FC<ProgressTrackerProps> = ({
     synchronised: 'Synchronised',
     cooperation: 'Cooperation',
     collaboration: 'Collaboration',
+    coevolution: 'Co-evolution',
   };
 
   return (
@@ -31,7 +32,6 @@ const ProgressTracker: React.FC<ProgressTrackerProps> = ({
           {stages.map((stage, index) => {
             const isActive = currentStage === stage;
             const isPast = stages.indexOf(currentStage) >= stages.indexOf(stage);
-            const integrationLevel = ((index + 1) / stages.length) * 100;
 
             return (
               <motion.button
@@ -81,14 +81,6 @@ const ProgressTracker: React.FC<ProgressTrackerProps> = ({
                     <ArrowRight className="w-4 h-4 text-gray-400" />
                   </motion.div>
                 )}
-                
-                <motion.span
-                  className="text-[10px] text-gray-400 mt-1"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: isActive ? 1 : 0.5 }}
-                >
-                  {integrationLevel.toFixed(0)}% integration
-                </motion.span>
               </motion.button>
             );
           })}

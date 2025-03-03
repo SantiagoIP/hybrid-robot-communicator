@@ -8,9 +8,9 @@ import StageDetail from '@/components/StageDetail';
 import ProgressTracker from '@/components/ProgressTracker';
 import References from '@/components/References';
 import Footer from '@/components/Footer';
-import { ArrowRight, Users, Clock, Handshake, Layers, AlertCircle } from 'lucide-react';
+import { ArrowRight, Users, Clock, Handshake, Layers, AlertCircle, Zap } from 'lucide-react';
 
-const stages = ['cell', 'coexistence', 'synchronised', 'cooperation', 'collaboration'];
+const stages = ['cell', 'coexistence', 'synchronised', 'cooperation', 'collaboration', 'coevolution'];
 
 const HomePage = () => {
   const [currentStage, setCurrentStage] = useState('cell');
@@ -36,6 +36,8 @@ const HomePage = () => {
         return <ArrowRight className="w-5 h-5" />;
       case 'collaboration':
         return <Handshake className="w-5 h-5" />;
+      case 'coevolution':
+        return <Zap className="w-5 h-5" />;
       default:
         return <AlertCircle className="w-5 h-5" />;
     }
@@ -88,7 +90,13 @@ const HomePage = () => {
                 {stages.map((stage, index) => (
                   <StageCard
                     key={stage}
-                    title={stage === 'cell' ? 'Cell (Isolation)' : stage.charAt(0).toUpperCase() + stage.slice(1)}
+                    title={
+                      stage === 'cell' 
+                        ? 'Cell (Isolation)' 
+                        : stage === 'coevolution'
+                        ? 'Co-evolution'
+                        : stage.charAt(0).toUpperCase() + stage.slice(1)
+                    }
                     description={
                       stage === 'cell'
                         ? 'Robots and humans operate in completely separate spaces.'
@@ -98,7 +106,9 @@ const HomePage = () => {
                         ? 'Humans and robots share workspace but work at different times.'
                         : stage === 'cooperation'
                         ? 'Humans and robots work simultaneously on separate tasks.'
-                        : 'Humans and robots work together on the same task simultaneously.'
+                        : stage === 'collaboration'
+                        ? 'Humans and robots work together on the same task simultaneously.'
+                        : 'Advanced integration where humans and robots evolve together, learning and adapting to each other.'
                     }
                     icon={getStageIcon(stage)}
                     isActive={currentStage === stage}
@@ -144,7 +154,7 @@ const HomePage = () => {
               The progression from isolated robotics to collaborative human-robot teams represents a significant evolution in automation technology. Each stage builds upon the previous one, enabling more sophisticated interactions and greater productivity.
             </p>
             <p className="text-gray-700 mb-4">
-              As sensors, artificial intelligence, and robot design continue to advance, we're seeing increasingly seamless integration between humans and machines. The final collaborative stage enables truly synergistic workflows where robots and humans complement each other's strengths.
+              As sensors, artificial intelligence, and robot design continue to advance, we're seeing increasingly seamless integration between humans and machines. The final co-evolution stage enables truly synergistic workflows where robots and humans not only collaborate but also evolve and adapt together over time.
             </p>
             <p className="text-gray-700">
               This model provides a framework for understanding not only the current state of human-robot integration in various industries but also the potential future developments in this rapidly evolving field.

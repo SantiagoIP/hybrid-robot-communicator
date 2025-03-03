@@ -110,7 +110,7 @@ const StageDetail: React.FC<StageDetailProps> = ({ stage, isActive }) => {
     },
     collaboration: {
       title: 'Collaboration',
-      description: 'The highest level of integration, collaboration involves humans and robots working together on the same task simultaneously. Their actions directly affect each other, requiring sophisticated communication and coordination systems.',
+      description: 'The collaboration stage involves humans and robots working together on the same task simultaneously. Their actions directly affect each other, requiring sophisticated communication and coordination systems.',
       humanCapabilities: [
         'Direct physical interaction with robots',
         'Real-time guidance and adaptation',
@@ -130,6 +130,30 @@ const StageDetail: React.FC<StageDetailProps> = ({ stage, isActive }) => {
         'Collaborative assembly where human and robot manipulate the same part',
         'Rehabilitation robots that respond to patient movements',
         'Teaching by demonstration in manufacturing'
+      ]
+    },
+    coevolution: {
+      title: 'Co-evolution',
+      description: 'The most advanced stage of integration, co-evolution represents a highly connected, dynamic, and continuously evolving relationship between humans and robots. Both agents adapt to each other over time, building mutual understanding through shared experiences and learning.',
+      humanCapabilities: [
+        'Natural, intuitive communication with robotic systems',
+        'Shared responsibility and decision-making',
+        'Enhanced productivity and creativity through partnership'
+      ],
+      robotCapabilities: [
+        'Learning and adapting to new scenarios autonomously',
+        'Emulating human preferences and work styles',
+        'High independence with human-like adaptability'
+      ],
+      communication: [
+        'Fluid, multi-modal, and barrier-free interaction',
+        'Shared objectives and principles',
+        'Mutual understanding built over time'
+      ],
+      examples: [
+        'Robots that learn from and evolve with their human counterparts',
+        'Advanced manufacturing where robots and humans share equal responsibility',
+        'Strategic-level human-machine teams with shared decision-making'
       ]
     }
   };
