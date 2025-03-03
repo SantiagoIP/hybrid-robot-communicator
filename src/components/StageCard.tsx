@@ -34,6 +34,9 @@ const StageCard: React.FC<StageCardProps> = ({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
+      style={{
+        background: isActive ? 'var(--gradient-active)' : 'var(--gradient-inactive)'
+      }}
     >
       <div className={cn(
         "bg-white/95 backdrop-blur-sm rounded-lg p-4 h-full",
@@ -43,7 +46,10 @@ const StageCard: React.FC<StageCardProps> = ({
           <div className={cn(
             "w-10 h-10 rounded-full flex items-center justify-center mr-3",
             isActive ? "bg-primary text-white" : "bg-blue-100 text-primary"
-          )}>
+          )}
+          style={{
+            backgroundColor: isActive ? 'rgb(var(--primary) / 1)' : 'rgb(219 234 254)'
+          }}>
             {icon}
           </div>
           <h3 className={cn(
