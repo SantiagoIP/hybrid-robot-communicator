@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { ArrowRight } from 'lucide-react';
 
 type ProgressTrackerProps = {
   stages: string[];
@@ -25,11 +26,12 @@ const ProgressTracker: React.FC<ProgressTrackerProps> = ({
   return (
     <div className="w-full">
       <div className="relative">
-        <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 -translate-y-1/2 rounded-full"></div>
+        <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-gray-200 via-blue-200 to-primary -translate-y-1/2 rounded-full"></div>
         <div className="flex justify-between relative">
           {stages.map((stage, index) => {
             const isActive = currentStage === stage;
             const isPast = stages.indexOf(currentStage) >= stages.indexOf(stage);
+            const integrationLevel = ((index + 1) / stages.length) * 100;
 
             return (
               <motion.button
@@ -69,6 +71,23 @@ const ProgressTracker: React.FC<ProgressTrackerProps> = ({
                   }}
                 >
                   {stageNames[stage]}
+                </motion.span>
+                
+                {index < stages.length - 1 && (
+                  <motion.div 
+                    className="absolute top-0 left-[calc(100%+0.5rem)] hidden md:block"
+                    style={{ transform: "translateX(-50%)" }}
+                  >
+                    <ArrowRight className="w-4 h-4 text-gray-400" />
+                  </motion.div>
+                )}
+                
+                <motion.span
+                  className="text-[10px] text-gray-400 mt-1"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: isActive ? 1 : 0.5 }}
+                >
+                  {integrationLevel.toFixed(0)}% integration
                 </motion.span>
               </motion.button>
             );

@@ -61,8 +61,11 @@ const HomePage = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
               Robot Integration in Human-Machine Teams
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-3">
               Explore the evolution of human-robot collaboration from isolated operation to seamless integration.
+            </p>
+            <p className="text-base text-gray-500 max-w-2xl mx-auto">
+              This model illustrates the progression of human-robot interaction, from completely separate workspaces to collaborative environments where humans and robots work together on shared tasks.
             </p>
           </motion.div>
 
@@ -85,7 +88,7 @@ const HomePage = () => {
                 {stages.map((stage, index) => (
                   <StageCard
                     key={stage}
-                    title={stage.charAt(0).toUpperCase() + stage.slice(1)}
+                    title={stage === 'cell' ? 'Cell (Isolation)' : stage.charAt(0).toUpperCase() + stage.slice(1)}
                     description={
                       stage === 'cell'
                         ? 'Robots and humans operate in completely separate spaces.'

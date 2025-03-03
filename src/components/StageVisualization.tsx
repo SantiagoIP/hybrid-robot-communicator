@@ -36,7 +36,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
           <div className="relative w-full h-full flex items-center justify-center">
             {/* Isolation Stage - Separate Work Areas */}
             <motion.div 
-              className="absolute left-1/4 top-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 border-dashed border-gray-300 rounded-lg p-6"
+              className="absolute left-1/3 top-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 border-dashed border-gray-300 rounded-lg p-6"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
@@ -55,7 +55,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.div>
 
             <motion.div 
-              className="absolute right-1/4 top-1/2 transform translate-x-1/2 -translate-y-1/2 border-2 border-dashed border-gray-300 rounded-lg p-6"
+              className="absolute right-1/3 top-1/2 transform translate-x-1/2 -translate-y-1/2 border-2 border-dashed border-gray-300 rounded-lg p-6"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -74,7 +74,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.div>
 
             <motion.div 
-              className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-gray-100 px-3 py-1 rounded-full text-xs text-gray-500"
+              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-xs text-gray-600 shadow-sm border border-gray-100"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
@@ -89,13 +89,13 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
           <div className="relative w-full h-full flex items-center justify-center">
             {/* Coexistence Stage - Shared Environment */}
             <motion.div 
-              className="absolute w-[80%] h-[60%] rounded-xl bg-workspace-peach opacity-70 flex items-center justify-center"
+              className="absolute w-[80%] h-[60%] rounded-xl bg-workspace-peach/50 flex items-center justify-center border border-workspace-peach/80"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
             >
               <motion.p
-                className="absolute top-2 text-xs font-medium text-gray-600 bg-white/80 px-2 py-1 rounded-full"
+                className="absolute top-2 text-xs font-medium text-gray-600 bg-white/90 px-3 py-1 rounded-full shadow-sm"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
@@ -105,7 +105,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.div>
             
             <motion.div 
-              className="absolute left-[30%] top-1/2 transform -translate-y-1/2"
+              className="absolute left-[35%] top-1/2 transform -translate-x-1/2 -translate-y-1/2"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -114,12 +114,12 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                 <div className="bg-robot-blue p-3 rounded-lg shadow-lg shadow-robot-blue/30 flex items-center justify-center">
                   <Bot className="w-8 h-8 text-white" />
                 </div>
-                <p className="text-xs text-gray-600 font-medium">Independent work</p>
+                <p className="text-xs text-gray-600 font-medium bg-white/80 px-2 py-1 rounded-full">Independent work</p>
               </div>
             </motion.div>
             
             <motion.div 
-              className="absolute right-[30%] top-1/2 transform -translate-y-1/2"
+              className="absolute right-[15%] top-1/2 transform -translate-y-1/2"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -128,12 +128,12 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                 <div className="bg-human-green p-3 rounded-full shadow-lg shadow-human-green/30 flex items-center justify-center">
                   <User className="w-8 h-8 text-white" />
                 </div>
-                <p className="text-xs text-gray-600 font-medium">Independent work</p>
+                <p className="text-xs text-gray-600 font-medium bg-white/80 px-2 py-1 rounded-full">Independent work</p>
               </div>
             </motion.div>
 
             <motion.div 
-              className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-gray-100 px-3 py-1 rounded-full text-xs text-gray-500"
+              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-xs text-gray-600 shadow-sm border border-gray-100"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -148,13 +148,13 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
           <div className="relative w-full h-full flex items-center justify-center">
             {/* Synchronised Stage - Time Coordination */}
             <motion.div 
-              className="absolute w-[80%] h-[60%] rounded-xl bg-workspace-peach opacity-70 flex items-center justify-center"
+              className="absolute w-[80%] h-[60%] rounded-xl bg-workspace-peach/50 flex items-center justify-center border border-workspace-peach/80"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
             >
               <motion.p
-                className="absolute top-2 text-xs font-medium text-gray-600 bg-white/80 px-2 py-1 rounded-full"
+                className="absolute top-2 text-xs font-medium text-gray-600 bg-white/90 px-3 py-1 rounded-full shadow-sm"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
@@ -164,7 +164,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.div>
             
             <motion.div 
-              className="absolute left-[30%] top-1/2 transform -translate-y-1/2"
+              className="absolute left-[35%] top-1/2 transform -translate-x-1/2 -translate-y-1/2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -174,7 +174,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                   <Bot className="w-8 h-8 text-white" />
                 </div>
                 <motion.div 
-                  className="px-2 py-1 bg-blue-100 rounded text-xs"
+                  className="px-2 py-1 bg-blue-100 rounded text-xs shadow-sm"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [0, 1, 0] }}
                   transition={{ repeat: Infinity, duration: 2, repeatDelay: 1 }}
@@ -185,7 +185,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.div>
             
             <motion.div 
-              className="absolute right-[30%] top-1/2 transform -translate-y-1/2"
+              className="absolute right-[15%] top-1/2 transform -translate-y-1/2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -195,7 +195,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                   <User className="w-8 h-8 text-white" />
                 </div>
                 <motion.div 
-                  className="px-2 py-1 bg-green-100 rounded text-xs"
+                  className="px-2 py-1 bg-green-100 rounded text-xs shadow-sm"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [0, 0, 1, 0] }}
                   transition={{ repeat: Infinity, duration: 2, repeatDelay: 1 }}
@@ -212,11 +212,11 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-              <ArrowRightLeft className="w-12 h-12 text-gray-400 opacity-50" />
+              <ArrowRightLeft className="w-16 h-16 text-gray-400 opacity-50" />
             </motion.div>
 
             <motion.div 
-              className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-gray-100 px-3 py-1 rounded-full text-xs text-gray-500"
+              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-xs text-gray-600 shadow-sm border border-gray-100"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
@@ -231,13 +231,13 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
           <div className="relative w-full h-full flex items-center justify-center">
             {/* Cooperation Stage - Simultaneous Work with Feedback */}
             <motion.div 
-              className="absolute w-[80%] h-[60%] rounded-xl bg-workspace-peach opacity-70 flex items-center justify-center"
+              className="absolute w-[80%] h-[60%] rounded-xl bg-workspace-peach/50 flex items-center justify-center border border-workspace-peach/80"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
             >
               <motion.p
-                className="absolute top-2 text-xs font-medium text-gray-600 bg-white/80 px-2 py-1 rounded-full"
+                className="absolute top-2 text-xs font-medium text-gray-600 bg-white/90 px-3 py-1 rounded-full shadow-sm"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
@@ -247,7 +247,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.div>
             
             <motion.div 
-              className="absolute left-[30%] top-1/2 transform -translate-y-1/2"
+              className="absolute left-[35%] top-1/2 transform -translate-x-1/2 -translate-y-1/2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -256,12 +256,12 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                 <div className="bg-robot-blue p-3 rounded-lg shadow-lg shadow-robot-blue/30 flex items-center justify-center">
                   <Bot className="w-8 h-8 text-white" />
                 </div>
-                <p className="text-xs text-gray-600 font-medium">Task A</p>
+                <p className="text-xs text-gray-600 font-medium bg-white/80 px-2 py-1 rounded-full">Task A</p>
               </div>
             </motion.div>
             
             <motion.div 
-              className="absolute right-[30%] top-1/2 transform -translate-y-1/2"
+              className="absolute right-[15%] top-1/2 transform -translate-y-1/2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -270,7 +270,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                 <div className="bg-human-green p-3 rounded-full shadow-lg shadow-human-green/30 flex items-center justify-center">
                   <User className="w-8 h-8 text-white" />
                 </div>
-                <p className="text-xs text-gray-600 font-medium">Task B</p>
+                <p className="text-xs text-gray-600 font-medium bg-white/80 px-2 py-1 rounded-full">Task B</p>
               </div>
             </motion.div>
 
@@ -283,7 +283,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
               transition={{ duration: 0.5, delay: 0.6 }}
             >
               <motion.path
-                d="M150,130 C175,110 225,110 250,130"
+                d="M140,130 C175,110 225,110 260,130"
                 fill="none"
                 stroke="#4b7bec"
                 strokeWidth="3"
@@ -293,7 +293,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                 transition={{ duration: 0.8, delay: 0.7 }}
               />
               <motion.path
-                d="M250,150 C225,170 175,170 150,150"
+                d="M260,150 C225,170 175,170 140,150"
                 fill="none"
                 stroke="#26de81"
                 strokeWidth="3"
@@ -302,12 +302,12 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                 animate={{ pathLength: 1 }}
                 transition={{ duration: 0.8, delay: 1 }}
               />
-              <motion.circle cx="150" cy="140" r="3" fill="#4b7bec" 
+              <motion.circle cx="140" cy="140" r="3" fill="#4b7bec" 
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 1.5 }}
               />
-              <motion.circle cx="250" cy="140" r="3" fill="#26de81" 
+              <motion.circle cx="260" cy="140" r="3" fill="#26de81" 
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 1.5 }}
@@ -315,7 +315,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.svg>
 
             <motion.div 
-              className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-gray-100 px-3 py-1 rounded-full text-xs text-gray-500"
+              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-xs text-gray-600 shadow-sm border border-gray-100"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.2 }}
@@ -330,7 +330,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
           <div className="relative w-full h-full flex items-center justify-center">
             {/* Collaboration Stage - Integrated Work */}
             <motion.div 
-              className="absolute w-[80%] h-[60%] rounded-xl bg-workspace-peach opacity-70 flex items-center justify-center"
+              className="absolute w-[80%] h-[60%] rounded-xl bg-workspace-peach/50 flex items-center justify-center border border-workspace-peach/80"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
@@ -342,7 +342,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                 transition={{ delay: 0.3, duration: 0.5 }}
               >
                 <motion.p
-                  className="absolute top-1 left-1/2 transform -translate-x-1/2 text-xs font-medium text-gray-600 bg-white/80 px-2 py-1 rounded-full"
+                  className="absolute top-1 left-1/2 transform -translate-x-1/2 text-xs font-medium text-gray-600 bg-white/90 px-3 py-1 rounded-full shadow-sm"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
@@ -351,7 +351,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                 </motion.p>
               </motion.div>
               <motion.p
-                className="absolute top-2 text-xs font-medium text-gray-600 bg-white/80 px-2 py-1 rounded-full"
+                className="absolute top-2 text-xs font-medium text-gray-600 bg-white/90 px-3 py-1 rounded-full shadow-sm"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
@@ -361,7 +361,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.div>
             
             <motion.div 
-              className="absolute left-[30%] top-1/2 transform -translate-y-1/2 z-20"
+              className="absolute left-[35%] top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
@@ -371,7 +371,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                   <Bot className="w-8 h-8 text-white" />
                 </div>
                 <motion.div
-                  className="px-2 py-1 bg-blue-100 rounded text-xs"
+                  className="px-2 py-1 bg-blue-100 rounded text-xs shadow-sm"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
@@ -382,7 +382,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.div>
             
             <motion.div 
-              className="absolute right-[30%] top-1/2 transform -translate-y-1/2 z-20"
+              className="absolute right-[15%] top-1/2 transform -translate-y-1/2 z-20"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -392,7 +392,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                   <User className="w-8 h-8 text-white" />
                 </div>
                 <motion.div
-                  className="px-2 py-1 bg-green-100 rounded text-xs"
+                  className="px-2 py-1 bg-green-100 rounded text-xs shadow-sm"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
@@ -429,7 +429,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
               transition={{ duration: 0.5, delay: 0.7 }}
             >
               <motion.path
-                d="M160,140 C180,140 220,140 240,140"
+                d="M140,140 C175,140 225,140 260,140"
                 fill="none"
                 stroke="#3b82f6"
                 strokeWidth="3"
@@ -438,7 +438,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
                 transition={{ duration: 0.8, delay: 0.8 }}
               />
               <motion.path
-                d="M240,160 C220,160 180,160 160,160"
+                d="M260,160 C225,160 175,160 140,160"
                 fill="none"
                 stroke="#22c55e"
                 strokeWidth="3"
@@ -450,7 +450,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
               {/* Interactive Communication Particles */}
               <motion.circle cx="200" cy="140" r="4" fill="#3b82f6" 
                 animate={{ 
-                  cx: [160, 200, 240, 200, 160],
+                  cx: [140, 200, 260, 200, 140],
                   opacity: [0, 1, 0, 1, 0]
                 }}
                 transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
@@ -458,7 +458,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
               
               <motion.circle cx="200" cy="160" r="4" fill="#22c55e"
                 animate={{ 
-                  cx: [240, 200, 160, 200, 240],
+                  cx: [260, 200, 140, 200, 260],
                   opacity: [0, 1, 0, 1, 0]
                 }}
                 transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
@@ -466,7 +466,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.svg>
 
             <motion.div 
-              className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-gray-100 px-3 py-1 rounded-full text-xs text-gray-500"
+              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-xs text-gray-600 shadow-sm border border-gray-100"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.2 }}
