@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Bot, User, ArrowRightLeft, ArrowRight, RefreshCw, Brain, Zap, Sparkles } from 'lucide-react';
@@ -42,46 +41,46 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
               transition={{ duration: 0.5 }}
             >
               <motion.div 
-                className="absolute left-1/2 top-[40%] transform -translate-x-[75%] -translate-y-1/2 border-2 border-dashed border-gray-300 rounded-lg p-6 bg-white/50"
+                className="absolute left-1/2 top-1/2 transform -translate-x-[75%] -translate-y-1/2 border-2 border-dashed border-gray-300 rounded-lg p-8 bg-white/50"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
                 <motion.div
-                  className="flex flex-col items-center space-y-2"
+                  className="flex flex-col items-center space-y-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
                 >
-                  <div className="bg-robot-blue p-3 rounded-lg shadow-lg shadow-robot-blue/30 flex items-center justify-center">
+                  <div className="bg-robot-blue p-4 rounded-lg shadow-lg shadow-robot-blue/30 flex items-center justify-center">
                     <Bot className="w-8 h-8 text-white" />
                   </div>
-                  <p className="text-xs text-gray-800 font-medium bg-white/80 px-2 py-1 rounded-full shadow-sm">Robot Zone</p>
+                  <p className="text-sm text-gray-800 font-medium bg-white/90 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">Robot Zone</p>
                 </motion.div>
               </motion.div>
 
               <motion.div 
-                className="absolute left-1/2 top-[40%] transform translate-x-[25%] -translate-y-1/2 border-2 border-dashed border-gray-300 rounded-lg p-6 bg-white/50"
+                className="absolute left-1/2 top-1/2 transform translate-x-[25%] -translate-y-1/2 border-2 border-dashed border-gray-300 rounded-lg p-8 bg-white/50"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <motion.div
-                  className="flex flex-col items-center space-y-2"
+                  className="flex flex-col items-center space-y-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                 >
-                  <div className="bg-human-green p-3 rounded-full shadow-lg shadow-human-green/30 flex items-center justify-center">
+                  <div className="bg-human-green p-4 rounded-full shadow-lg shadow-human-green/30 flex items-center justify-center">
                     <User className="w-8 h-8 text-white" />
                   </div>
-                  <p className="text-xs text-gray-800 font-medium bg-white/80 px-2 py-1 rounded-full shadow-sm">Human Zone</p>
+                  <p className="text-sm text-gray-800 font-medium bg-white/90 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">Human Zone</p>
                 </motion.div>
               </motion.div>
             </motion.div>
 
             <motion.div 
-              className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-xs text-gray-600 shadow-md border border-gray-100"
+              className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-sm text-gray-600 shadow-md border border-gray-100"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
@@ -102,7 +101,7 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
               transition={{ duration: 0.5 }}
             >
               <motion.p
-                className="absolute top-2 text-xs font-medium text-gray-600 bg-white/90 px-3 py-1 rounded-full shadow-sm"
+                className="absolute top-4 text-sm font-medium text-gray-600 bg-white/90 px-4 py-1.5 rounded-full shadow-sm"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
@@ -112,35 +111,35 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.div>
             
             <motion.div 
-              className="absolute left-1/2 top-[40%] transform -translate-x-[60%] -translate-y-1/2"
+              className="absolute left-1/2 top-1/2 transform -translate-x-[60%] -translate-y-1/2"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <div className="flex flex-col items-center space-y-2">
-                <div className="bg-robot-blue p-3 rounded-lg shadow-lg shadow-robot-blue/30 flex items-center justify-center">
+              <div className="flex flex-col items-center space-y-4">
+                <div className="bg-robot-blue p-4 rounded-lg shadow-lg shadow-robot-blue/30 flex items-center justify-center">
                   <Bot className="w-8 h-8 text-white" />
                 </div>
-                <p className="text-xs text-gray-600 font-medium bg-white/80 px-2 py-1 rounded-full shadow-sm">Independent work</p>
+                <p className="text-sm text-gray-600 font-medium bg-white/90 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">Independent work</p>
               </div>
             </motion.div>
             
             <motion.div 
-              className="absolute left-1/2 top-[40%] transform translate-x-[20%] -translate-y-1/2"
+              className="absolute left-1/2 top-1/2 transform translate-x-[20%] -translate-y-1/2"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <div className="flex flex-col items-center space-y-2">
-                <div className="bg-human-green p-3 rounded-full shadow-lg shadow-human-green/30 flex items-center justify-center">
+              <div className="flex flex-col items-center space-y-4">
+                <div className="bg-human-green p-4 rounded-full shadow-lg shadow-human-green/30 flex items-center justify-center">
                   <User className="w-8 h-8 text-white" />
                 </div>
-                <p className="text-xs text-gray-600 font-medium bg-white/80 px-2 py-1 rounded-full shadow-sm">Independent work</p>
+                <p className="text-sm text-gray-600 font-medium bg-white/90 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">Independent work</p>
               </div>
             </motion.div>
 
             <motion.div 
-              className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-xs text-gray-600 shadow-md border border-gray-100 z-10"
+              className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-sm text-gray-600 shadow-md border border-gray-100 z-10"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
