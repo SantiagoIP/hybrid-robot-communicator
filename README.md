@@ -6,8 +6,6 @@ An interactive web application exploring the evolution of human-robot collaborat
 
 ## Overview
 
-This project presents a comprehensive model of human-robot interaction stages, demonstrating the progression from completely separate workspaces to collaborative environments where humans and robots work together seamlessly. It serves as both an educational tool and a practical demonstration of modern web development in the context of Human-Robot Interaction (HRI).
-
 ### Key Concepts
 
 - **Human-Robot Interaction (HRI)**: The study of interactions between humans and robots
