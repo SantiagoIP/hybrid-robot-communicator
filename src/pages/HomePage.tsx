@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import NavBar from '@/components/NavBar';
@@ -6,7 +7,7 @@ import StageVisualization from '@/components/StageVisualization';
 import StageDetail from '@/components/StageDetail';
 import ProgressTracker from '@/components/ProgressTracker';
 import References from '@/components/References';
-import { ArrowRight, Users, Clock, Handshake, Layers, AlertCircle, Zap } from 'lucide-react';
+import { ArrowRight, Users, Clock, Handshake, Layers, AlertCircle, Zap, Book } from 'lucide-react';
 
 const stages = ['cell', 'coexistence', 'synchronised', 'cooperation', 'collaboration', 'coevolution'];
 
@@ -43,14 +44,7 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
-      <NavBar />
-      
-      <motion.div
-        className="pt-24 pb-12 px-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isVisible ? 1 : 0 }}
-        transition={{ duration: 0.5 }}
-      >
+      <div className="pt-24 pb-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             className="text-center mb-12"
@@ -58,7 +52,7 @@ const HomePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="gradient-heading mb-4">
               <span className="text-human-darkGreen">Human</span>-<span className="text-robot-darkBlue">Robot</span> Collaboration in Teams
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-3">
@@ -118,7 +112,7 @@ const HomePage = () => {
             </div>
             
             <div className="lg:col-span-2">
-              <div className="glass-card rounded-xl overflow-hidden h-full">
+              <div className="glass-card rounded-xl overflow-hidden h-full interactive-card">
                 <div className="h-64 bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-white/50 relative">
                   <AnimatePresence mode="wait">
                     <StageVisualization
@@ -142,12 +136,12 @@ const HomePage = () => {
           </div>
 
           <motion.div
-            className="mb-8 glass-card p-6 rounded-xl"
+            className="mb-8 glass-card p-6 rounded-xl interactive-card"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <h2 className="text-2xl font-bold mb-4 text-gray-800">Understanding the Evolution</h2>
+            <h2 className="text-2xl font-bold mb-4 gradient-heading">Understanding the Evolution</h2>
             <p className="text-gray-700 mb-4">
               The progression from isolated robotics to co-evolutionary human-robot teams represents a significant evolution in automation technology. Each stage builds upon the previous one, enabling more sophisticated interactions and greater productivity.
             </p>
@@ -163,7 +157,7 @@ const HomePage = () => {
             <References />
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

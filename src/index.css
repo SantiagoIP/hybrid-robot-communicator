@@ -34,6 +34,10 @@
     --ring: 221.2 83% 53.3%;
 
     --radius: 0.5rem;
+
+    /* New heading color variables for improved contrast */
+    --heading-color: 222.2 84% 12%;
+    --heading-gradient: linear-gradient(135deg, hsl(222.2 80% 30%), hsl(221.2 83% 53.3%));
   }
 
   .dark {
@@ -64,6 +68,10 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
+    
+    /* Dark mode heading variables */
+    --heading-color: 210 40% 90%;
+    --heading-gradient: linear-gradient(135deg, hsl(217.2 80% 65%), hsl(217.2 91.2% 59.8%));
   }
 }
 
@@ -76,10 +84,38 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  
+  /* Enhanced heading styles for better visual hierarchy */
+  h1 {
+    @apply text-4xl md:text-5xl font-bold tracking-tight;
+    color: hsl(var(--heading-color));
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+    color: hsl(var(--heading-color));
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl font-bold;
+    color: hsl(var(--heading-color));
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl font-semibold;
+    color: hsl(var(--heading-color));
+  }
 }
 
 .glass-card {
   @apply bg-white/30 backdrop-blur-md border border-white/40 shadow-lg;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Add interactive hover effect for cards */
+.glass-card:hover {
+  @apply bg-white/40 border-white/50 shadow-xl transform;
+  transform: translateY(-2px);
 }
 
 .glass-nav {
@@ -88,6 +124,12 @@
 
 .card-heading {
   @apply font-bold text-lg md:text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600;
+}
+
+/* Enhanced heading with gradient */
+.gradient-heading {
+  @apply font-bold bg-clip-text text-transparent;
+  background-image: var(--heading-gradient);
 }
 
 .connection-path {
@@ -122,4 +164,39 @@
 
 .section-enter-active {
   @apply opacity-100 translate-y-0;
+}
+
+/* Interactive elements hover effects */
+.interactive-element {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.interactive-element:hover {
+  @apply transform scale-105;
+}
+
+.interactive-card {
+  @apply transition-all duration-300;
+}
+
+.interactive-card:hover {
+  @apply shadow-lg transform -translate-y-1;
+}
+
+/* List item hover effects */
+.hover-list-item {
+  @apply transition-all duration-200;
+}
+
+.hover-list-item:hover {
+  @apply bg-blue-50/50 pl-1;
+}
+
+/* Button hover effects */
+.hover-button {
+  @apply transition-all duration-200;
+}
+
+.hover-button:hover {
+  @apply scale-105 shadow-md;
 }
