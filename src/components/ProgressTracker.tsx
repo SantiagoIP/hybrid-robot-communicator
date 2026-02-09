@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { ArrowRight } from 'lucide-react';
 
 type ProgressTrackerProps = {
   stages: string[];
@@ -15,7 +14,7 @@ const ProgressTracker: React.FC<ProgressTrackerProps> = ({
   onStageClick,
 }) => {
   const stageNames: Record<string, string> = {
-    cell: 'Cell (Isolation)',
+    cell: 'Cell',
     coexistence: 'Coexistence',
     synchronised: 'Synchronised',
     cooperation: 'Cooperation',
@@ -23,63 +22,66 @@ const ProgressTracker: React.FC<ProgressTrackerProps> = ({
     coevolution: 'Co-evolution',
   };
 
+  const currentIndex = stages.indexOf(currentStage);
+
   return (
-    <div className="w-full">
-      <div className="relative">
-        <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-gray-200 via-blue-200 to-primary -translate-y-1/2 rounded-full"></div>
+    <div className="w-full overflow-x-auto pb-2">
+      <div className="relative min-w-[480px]">
+        {/* Background track */}
+        <div className="absolute top-5 left-5 right-5 h-[3px] bg-gray-200 rounded-full" />
+        {/* Active track */}
+        <motion.div
+          className="absolute top-5 left-5 h-[3px] bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"
+          initial={{ width: '0%' }}
+          animate={{
+            width: `${(currentIndex / (stages.length - 1)) * 100}%`,
+          }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          style={{ maxWidth: 'calc(100% - 40px)' }}
+        />
+
         <div className="flex justify-between relative">
           {stages.map((stage, index) => {
             const isActive = currentStage === stage;
-            const isPast = stages.indexOf(currentStage) >= stages.indexOf(stage);
+            const isPast = currentIndex >= index;
 
             return (
               <motion.button
                 key={stage}
-                className="relative z-10 flex flex-col items-center"
+                className="relative z-10 flex flex-col items-center group"
                 onClick={() => onStageClick(stage)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <motion.div
                   className={cn(
-                    "w-10 h-10 rounded-full flex items-center justify-center mb-2 text-lg transition-colors",
-                    isPast
-                      ? "bg-primary text-white shadow-md shadow-primary/20"
-                      : "bg-white border-2 border-gray-300 text-gray-400"
-                  )}
-                  animate={{
-                    scale: isActive ? 1.2 : 1,
-                    backgroundColor: isActive
-                      ? "rgb(var(--primary) / 1)"
+                    "w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300",
+                    isActive
+                      ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30 ring-4 ring-blue-100"
                       : isPast
-                      ? "rgb(var(--primary) / 0.8)"
-                      : "white",
-                  }}
+                      ? "bg-blue-500 text-white shadow-md"
+                      : "bg-white border-2 border-gray-300 text-gray-400 group-hover:border-blue-300 group-hover:text-blue-400"
+                  )}
+                  animate={{ scale: isActive ? 1.15 : 1 }}
                   transition={{ duration: 0.3 }}
                 >
                   {index + 1}
                 </motion.div>
                 <motion.span
                   className={cn(
-                    "text-xs font-medium whitespace-nowrap",
-                    isActive ? "text-primary" : "text-gray-500"
+                    "mt-2 text-xs font-medium text-center leading-tight transition-colors duration-300",
+                    isActive
+                      ? "text-blue-700 font-semibold"
+                      : isPast
+                      ? "text-blue-500"
+                      : "text-gray-400 group-hover:text-gray-600"
                   )}
                   animate={{
-                    scale: isActive ? 1.1 : 1,
-                    opacity: isActive ? 1 : 0.7,
+                    scale: isActive ? 1.05 : 1,
                   }}
                 >
                   {stageNames[stage]}
                 </motion.span>
-                
-                {index < stages.length - 1 && (
-                  <motion.div 
-                    className="absolute top-0 left-[calc(100%+0.5rem)] hidden md:block"
-                    style={{ transform: "translateX(-50%)" }}
-                  >
-                    <ArrowRight className="w-4 h-4 text-gray-400" />
-                  </motion.div>
-                )}
               </motion.button>
             );
           })}

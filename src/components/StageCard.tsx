@@ -23,43 +23,39 @@ const StageCard: React.FC<StageCardProps> = ({
   return (
     <motion.div
       className={cn(
-        "rounded-xl p-1 cursor-pointer transition-all duration-300 ease-out",
+        "rounded-xl p-[2px] cursor-pointer transition-all duration-300 ease-out",
         isActive 
-          ? "bg-gradient-to-br from-primary/80 to-blue-500/80 shadow-lg shadow-primary/20" 
-          : "bg-white/70 hover:bg-white/90 border border-white/40"
+          ? "bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg shadow-blue-500/25" 
+          : "bg-gradient-to-br from-gray-200 to-gray-100 hover:from-gray-300 hover:to-gray-200"
       )}
       onClick={onClick}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      style={{
-        background: isActive ? 'var(--gradient-active)' : 'var(--gradient-inactive)'
-      }}
     >
       <div className={cn(
-        "bg-white/95 backdrop-blur-sm rounded-lg p-4 h-full",
-        isActive && "bg-gradient-to-br from-white/95 to-blue-50/95"
+        "bg-white rounded-[10px] p-4 h-full transition-colors duration-300",
+        isActive && "bg-gradient-to-br from-white to-blue-50"
       )}>
-        <div className="flex items-center mb-3">
+        <div className="flex items-center mb-2">
           <div className={cn(
-            "w-10 h-10 rounded-full flex items-center justify-center mr-3",
-            isActive ? "bg-primary text-white" : "bg-blue-100 text-primary"
-          )}
-          style={{
-            backgroundColor: isActive ? 'rgb(var(--primary) / 1)' : 'rgb(219 234 254)'
-          }}>
+            "w-9 h-9 rounded-full flex items-center justify-center mr-3 shrink-0 transition-colors duration-300",
+            isActive 
+              ? "bg-blue-600 text-white shadow-md shadow-blue-600/30" 
+              : "bg-blue-50 text-blue-600"
+          )}>
             {icon}
           </div>
           <h3 className={cn(
-            "font-semibold text-lg",
-            isActive ? "text-primary" : "text-gray-800"
+            "font-semibold text-base leading-tight transition-colors duration-300",
+            isActive ? "text-blue-700" : "text-gray-800"
           )}>
             {title}
           </h3>
         </div>
-        <p className="text-sm text-gray-600 line-clamp-2">{description}</p>
+        <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 pl-12">{description}</p>
       </div>
     </motion.div>
   );

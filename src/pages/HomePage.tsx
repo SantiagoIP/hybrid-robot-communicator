@@ -119,7 +119,7 @@ const HomePage = () => {
             
             <div className="lg:col-span-2">
               <div className="glass-card rounded-xl overflow-hidden h-full">
-                <div className="h-64 bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-white/50 relative">
+                <div className="h-72 md:h-80 bg-gradient-to-br from-blue-50/80 to-indigo-50/60 border-b border-white/50 relative">
                   <AnimatePresence mode="wait">
                     <StageVisualization
                       key={currentStage}
