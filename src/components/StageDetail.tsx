@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import StageExtension, {
   type StageExtensionData,
 } from '@/components/StageExtension';
+import Citation from '@/components/Citation';
 
 type StageDetailProps = {
   stage: string;
@@ -11,7 +12,7 @@ type StageDetailProps = {
 
 type StageData = {
   title: string;
-  description: string;
+  description: React.ReactNode;
   humanCapabilities: string[];
   robotCapabilities: string[];
   communication: string[];
@@ -330,8 +331,13 @@ const StageDetail: React.FC<StageDetailProps> = ({ stage, isActive }) => {
     },
     coevolution: {
       title: 'Co-evolution',
-      description:
-        "Co-evolution is the author's own extension of the Müller (2016) taxonomy, originally introduced in Pavon (2023, KEDGE BS) as a managerial approach for hybrid human–machine teams in agribusiness. At this stage, humans and robots form a single adaptive system situated within the Industry 5.0 paradigm: robots act with greater autonomy while remaining tightly coupled to humans through bidirectional learning. Responsibility, error attribution and trust become system-level properties rather than individual ones, and robots progressively emulate human preferences and communication styles to strengthen team cohesion. Since the thesis was defended, the surrounding literature on symbiotic HRC (Wang 2020), human–AI coevolution (Pedreschi et al. 2024) and shared embodied cognition (Frontiers in AI 2025) has converged on similar ideas.",
+      description: (
+        <>
+          Co-evolution is the author's own extension of the{' '}
+          <Citation id="muller2016" label="Müller (2016)" /> taxonomy, originally introduced in{' '}
+          <Citation id="pavon2023" label="Pavon (2023, KEDGE BS)" /> as a managerial approach for hybrid human–machine teams in agribusiness. At this stage, humans and robots form a single adaptive system situated within the Industry 5.0 paradigm: robots act with greater autonomy while remaining tightly coupled to humans through bidirectional learning. Responsibility, error attribution and trust become system-level properties rather than individual ones, and robots progressively emulate human preferences and communication styles to strengthen team cohesion. Since the thesis was defended, the surrounding literature on symbiotic HRC (<Citation id="wang2020" label="Wang 2020" />), human–AI coevolution (<Citation id="pedreschi2024" label="Pedreschi et al. 2024" />) and shared embodied cognition (<Citation id="frontiers2025" label="Frontiers in AI 2025" />) has converged on similar ideas.
+        </>
+      ),
       humanCapabilities: [
         'Building trust through consistent interaction',
         'Sharing responsibility for system-wide outcomes',

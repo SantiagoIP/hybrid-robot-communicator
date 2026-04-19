@@ -5,6 +5,7 @@ import StageVisualization from '@/components/StageVisualization';
 import StageDetail from '@/components/StageDetail';
 import ProgressTracker from '@/components/ProgressTracker';
 import References from '@/components/References';
+import Citation from '@/components/Citation';
 import { ArrowRight, Users, Clock, Handshake, Layers, AlertCircle, Zap } from 'lucide-react';
 
 const stages = ['cell', 'coexistence', 'synchronised', 'cooperation', 'collaboration', 'coevolution'];
@@ -195,10 +196,17 @@ const HomePage = () => {
               The progression from isolated robotic cells to co-evolutionary human-robot teams reframes automation as an organisational question, not just a technical one. Each stage builds on the previous one — adding shared space, shared time, shared task, shared goal and finally shared learning between the human and the machine.
             </p>
             <p className="text-gray-700 mb-4">
-              The first five stages follow the widely cited classification by Müller, Vette &amp; Mailahn (Procedia CIRP, 2016), refined by Benos, Bechar &amp; Bochtis (2020) and Bdiwi et al. (2017). The sixth stage — <em>co-evolution</em> — is the author's own contribution, originally introduced in Pavon (2023, KEDGE BS) as a managerial approach for hybrid human-machine teams in agribusiness, and visualised on this site as the natural extension of the Müller taxonomy inside the Industry 5.0 paradigm.
+              The first five stages follow the widely cited classification by{' '}
+              <Citation id="muller2016" label="Müller, Vette & Mailahn (Procedia CIRP, 2016)" />, refined by{' '}
+              <Citation id="benos2020" label="Benos, Bechar & Bochtis (2020)" /> and{' '}
+              <Citation id="bdiwi2017" label="Bdiwi et al. (2017)" />. The sixth stage — <em>co-evolution</em> — is the author's own contribution, originally introduced in{' '}
+              <Citation id="pavon2023" label="Pavon (2023, KEDGE BS)" /> as a managerial approach for hybrid human-machine teams in agribusiness, and visualised on this site as the natural extension of the Müller taxonomy inside the Industry 5.0 paradigm.
             </p>
             <p className="text-gray-700">
-              Since the thesis was defended, the surrounding literature has converged on similar ideas — symbiotic HRC (Wang, 2020), human–AI coevolution (Pedreschi et al., 2024) and shared embodied cognition (Frontiers in AI, 2025) — which this site uses to triangulate the co-evolution stage. The lens stays managerial throughout: trust, communication and shared responsibility as the defining variables of the human-machine team, especially in sectors like agribusiness where the next generation of cobots will land first.
+              Since the thesis was defended, the surrounding literature has converged on similar ideas — symbiotic HRC (<Citation id="wang2020" label="Wang, 2020" />), human–AI coevolution (<Citation id="pedreschi2024" label="Pedreschi et al., 2024" />) and shared embodied cognition (<Citation id="frontiers2025" label="Frontiers in AI, 2025" />) — which this site uses to triangulate the co-evolution stage. The lens stays managerial throughout: trust, communication and shared responsibility as the defining variables of the human-machine team, especially in sectors like agribusiness where the next generation of cobots will land first.
+            </p>
+            <p className="text-xs text-gray-400 mt-3">
+              Tip: hover (or tap on mobile) any underlined reference to see its details.
             </p>
           </motion.div>
 

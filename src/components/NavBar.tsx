@@ -43,8 +43,17 @@ const NavBar = () => {
             <Link to="/about" className="text-sm font-medium hover:text-primary transition-colors">
               About
             </Link>
+            <Link to="/glossary" className="text-sm font-medium hover:text-primary transition-colors">
+              Glossary
+            </Link>
             <Link to="/resources" className="text-sm font-medium hover:text-primary transition-colors">
               Resources
+            </Link>
+            <Link
+              to="/print"
+              className="text-sm font-medium px-3 py-1.5 rounded-full border border-primary/30 text-primary hover:bg-primary/10 transition-colors"
+            >
+              One-pager
             </Link>
           </nav>
           <div className="md:hidden flex items-center">
@@ -75,11 +84,25 @@ const NavBar = () => {
               About
             </Link>
             <Link
+              to="/glossary"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600"
+              onClick={() => setIsOpen(false)}
+            >
+              Glossary
+            </Link>
+            <Link
               to="/resources"
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600"
               onClick={() => setIsOpen(false)}
             >
               Resources
+            </Link>
+            <Link
+              to="/print"
+              className="block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-primary/10"
+              onClick={() => setIsOpen(false)}
+            >
+              One-pager (print)
             </Link>
           </div>
         </div>

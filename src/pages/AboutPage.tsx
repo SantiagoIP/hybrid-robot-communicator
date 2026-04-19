@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, ExternalLink, BookOpen, Sparkles } from 'lucide-react';
+import Citation from '@/components/Citation';
 
 const THESIS = {
   title: 'Managing strategic-level human-machine teams in the agribusiness sector',
@@ -52,12 +53,17 @@ const AboutPage = () => {
           >
             <h2 className="text-2xl font-bold mb-4 text-gray-800">Project Overview</h2>
             <p className="text-gray-700 mb-6">
-              This interactive visualization is the public communication layer for a master's thesis on hybrid human-machine teams in organisations. It extends the well-known industrial-HRC taxonomy of Müller, Vette &amp; Mailahn (Procedia CIRP, 2016) — cell, coexistence, synchronised, cooperation, collaboration — with a sixth stage, <em>co-evolution</em>, originally introduced in the author's 2023 KEDGE thesis as a managerial approach for hybrid teams and visualised here as the natural extension of the Müller taxonomy.
+              This interactive visualization is the public communication layer for a master's thesis on hybrid human-machine teams in organisations. It extends the well-known industrial-HRC taxonomy of{' '}
+              <Citation id="muller2016" label="Müller, Vette & Mailahn (Procedia CIRP, 2016)" /> — cell, coexistence, synchronised, cooperation, collaboration — with a sixth stage, <em>co-evolution</em>, originally introduced in the author's{' '}
+              <Citation id="pavon2023" label="2023 KEDGE thesis" /> as a managerial approach for hybrid teams and visualised here as the natural extension of the Müller taxonomy.
             </p>
 
             <h3 className="text-xl font-semibold mb-3 text-gray-800">Research Background</h3>
             <p className="text-gray-700 mb-6">
-              The model synthesises the foundational HRC literature (Bauer 2008; Goodrich &amp; Schultz 2007), recent refinements of the taxonomy (Bdiwi 2017; Kolbeinsson 2019), and the emerging Industry 5.0 / human–AI coevolution discourse (Wang 2020; Semeraro 2023; Pedersen 2024; Pedreschi 2024; Frontiers in AI 2025). The aim is to make a research-grade model accessible to practitioners and managers thinking about how hybrid teams will reshape their organisations.
+              The model synthesises the foundational HRC literature (<Citation id="bauer2008" label="Bauer 2008" />; <Citation id="goodrich2007" label="Goodrich & Schultz 2007" />), recent refinements of the taxonomy (<Citation id="bdiwi2017" label="Bdiwi 2017" />; <Citation id="kolbeinsson2019" label="Kolbeinsson 2019" />; <Citation id="benos2020" label="Benos 2020" />), and the emerging Industry 5.0 / human–AI coevolution discourse (<Citation id="wang2020" label="Wang 2020" />; <Citation id="semeraro2023" label="Semeraro 2023" />; <Citation id="pedersen2024" label="Pedersen 2024" />; <Citation id="pedreschi2024" label="Pedreschi 2024" />; <Citation id="frontiers2025" label="Frontiers in AI 2025" />). The aim is to make a research-grade model accessible to practitioners and managers thinking about how hybrid teams will reshape their organisations.
+            </p>
+            <p className="text-xs text-gray-400 mb-4">
+              Tip: hover (or tap on mobile) any underlined reference for the full citation, abstract pointer and source link.
             </p>
 
             <h3 className="text-xl font-semibold mb-3 text-gray-800">Methodology</h3>
@@ -192,7 +198,7 @@ const AboutPage = () => {
             </div>
 
             <p className="text-gray-700 mb-4">
-              Industry 5.0 is the European Commission's policy frame for the next phase of European industry. In the 2021 brief <em>Industry 5.0: Towards a sustainable, human-centric and resilient European industry</em> (Breque, De Nul &amp; Petridis), the Commission states that:
+              Industry 5.0 is the European Commission's policy frame for the next phase of European industry. In the 2021 brief <em>Industry 5.0: Towards a sustainable, human-centric and resilient European industry</em> (<Citation id="breque2021" label="Breque, De Nul & Petridis" />), the Commission states that:
             </p>
             <blockquote className="border-l-4 border-purple-300 bg-purple-50/60 pl-4 pr-3 py-2 mb-4 text-gray-800 italic">
               &ldquo;Industry 5.0 provides a vision of industry that aims beyond efficiency and productivity as the sole goals, and reinforces the role and the contribution of industry to society.&rdquo;
@@ -206,11 +212,13 @@ const AboutPage = () => {
             </blockquote>
 
             <p className="text-gray-700 mb-4">
-              The Commission anchors Industry 5.0 on three values — <strong>human-centric</strong>, <strong>sustainable</strong> and <strong>resilient</strong> — and on the idea that technology should serve workers rather than displace them. The 2022 follow-up <em>Industry 5.0, a transformative vision for Europe</em> goes further and asks industry to design human-machine systems where the worker keeps agency, the production system stays adaptable to shocks, and the environmental footprint stays inside planetary limits.
+              The Commission anchors Industry 5.0 on three values — <strong>human-centric</strong>, <strong>sustainable</strong> and <strong>resilient</strong> — and on the idea that technology should serve workers rather than displace them. The 2022 follow-up <em>Industry 5.0, a transformative vision for Europe</em> (<Citation id="ec2022" label="European Commission, 2022" />) goes further and asks industry to design human-machine systems where the worker keeps agency, the production system stays adaptable to shocks, and the environmental footprint stays inside planetary limits.
             </p>
 
             <p className="text-gray-700 mb-3">
-              Read against this paradigm, the <em>co-evolution</em> stage of the model on this site is what the human-centric pillar looks like at the team level: humans and robots learn from each other continuously, responsibility is treated as a system-level property rather than parked on one operator, and trust becomes a measurable design outcome rather than a residual. That is the bridge between the Müller (2016) HRC taxonomy and the Industry 5.0 policy frame, and the contribution Pavon (2023) makes to it from a management standpoint.
+              Read against this paradigm, the <em>co-evolution</em> stage of the model on this site is what the human-centric pillar looks like at the team level: humans and robots learn from each other continuously, responsibility is treated as a system-level property rather than parked on one operator, and trust becomes a measurable design outcome rather than a residual. That is the bridge between the{' '}
+              <Citation id="muller2016" label="Müller (2016)" /> HRC taxonomy and the Industry 5.0 policy frame, and the contribution{' '}
+              <Citation id="pavon2023" label="Pavon (2023)" /> makes to it from a management standpoint.
             </p>
 
             <ul className="text-sm text-gray-700 space-y-2 mt-4 border-t border-gray-200 pt-4">

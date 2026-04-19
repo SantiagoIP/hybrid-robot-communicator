@@ -1,126 +1,111 @@
-# Human-Robot Collaboration in Teams
+# Human–Robot Collaboration in Teams
 
-An interactive web application exploring the evolution of human-robot collaboration, from isolated operations to advanced co-evolutionary integration. This project demonstrates the progressive stages of human-robot interaction, from basic isolation to sophisticated co-evolutionary systems.
+An interactive companion to a master's thesis on hybrid human–machine teams in
+organisations. The site presents the six stages of human–robot integration —
+from isolated cells to **co-evolution** — read through a managerial lens.
 
-🌐 **[View Live Website](https://santiagoip.github.io/hybrid-robot-communicator/)**
+🌐 **Live site:** <https://santiagoip.github.io/hybrid-robot-communicator/>
+📄 **Thesis PDF:** [Managing strategic-level human-machine teams in the agribusiness sector](https://santiagoip.github.io/hybrid-robot-communicator/thesis.pdf)
+📚 **Author:** Santiago I. Pavon — KEDGE Business School, MSc in International Business (2023, sup. O. Dupouët)
 
-## Overview
+---
 
-### Key Concepts
+## What is on the site
 
-- **Human-Robot Interaction (HRI)**: The study of interactions between humans and robots
-- **Co-evolutionary Systems**: Systems where humans and robots adapt and learn from each other
-- **Progressive Integration**: The gradual process of combining human and robotic capabilities
+| Page          | What you find                                                                              |
+| ------------- | ------------------------------------------------------------------------------------------ |
+| **Home**      | Interactive 6-stage model with per-stage visualization, plain-language analogies, ethics questions and a manager checklist. |
+| **About**     | Thesis context, BibTeX, and the Industry 5.0 framing with direct quotes from the European Commission's 2021/2022 briefs. |
+| **Glossary**  | Plain-language definitions of HRC, HRI, cobot, AMR, LOA, embodied cognition, Industry 5.0, etc. With search. |
+| **Resources** | Curated, hyperlinked literature behind the model.                                          |
+| **One-pager** | Print-ready single-page summary of the six stages with `Print → Save as PDF`.              |
 
-### Stages of Evolution
+Citations in the running text are hoverable: hover (or tap on mobile) any
+underlined reference for the full citation, a one-line summary, and a link to
+the source.
 
-1. **Cell (Isolation)**: Robots and humans operate in completely separate spaces
-   - Clear physical boundaries
-   - Independent operation
-   - No direct interaction
+---
 
-2. **Coexistence**: Shared environment with independent work
-   - Same physical space
-   - Parallel operations
-   - Basic awareness
+## The six stages
 
-3. **Synchronised**: Shared workspace with time-separated operations
-   - Coordinated timing
-   - Sequential tasks
-   - Enhanced safety protocols
+1. **Cell (isolation)** — fenced robot, human outside.
+2. **Coexistence** — same room, separate jobs (warehouse picker + AMR).
+3. **Synchronised** — same workspace, different moments (handover-driven).
+4. **Cooperation** — same workpiece, different sub-tasks (cobot + operator).
+5. **Collaboration** — same task, joint motion (surgeon + robotic arm).
+6. **Co-evolution** — humans and robots learn from each other; shared trust,
+   shared responsibility. Originally introduced in **Pavon (2023)**.
 
-4. **Cooperation**: Simultaneous work on separate tasks
-   - Parallel processing
-   - Task allocation
-   - Resource sharing
+The first five stages follow Müller, Vette & Mailahn (Procedia CIRP, 2016),
+refined by Bdiwi (2017), Kolbeinsson (2019) and Benos, Bechar & Bochtis (2020).
+The sixth stage is the author's contribution and is read against the European
+Commission's Industry 5.0 paradigm (Breque, De Nul & Petridis, 2021).
 
-5. **Collaboration**: Joint work on shared tasks
-   - Combined efforts
-   - Shared objectives
-   - Mutual support
+---
 
-6. **Co-evolution**: Advanced integration with mutual learning and adaptation
-   - Continuous improvement
-   - Adaptive behaviors
-   - Dynamic optimization
+## Tech stack
 
-## Technology Stack
+- **React 18 + TypeScript** with **Vite** as the build tool.
+- **Tailwind CSS** with a small set of custom design tokens
+  (`src/lib/stageTokens.ts` for the stage palette, `tailwind.config.ts` for
+  human/robot/workspace colors).
+- **Framer Motion** for animation, with `useReducedMotion` respected.
+- **Radix UI** (Tabs, Popover) as the accessibility primitives behind the
+  per-stage tabs and the citation hover cards.
+- **lucide-react** for icons.
+- **react-router-dom** (HashRouter) for client-side routing on GitHub Pages.
 
-### Frontend
-- **React 18**: Modern UI development with hooks and functional components
-- **TypeScript**: Type-safe development for enhanced reliability
-- **Vite**: Next-generation build tool for fast development
-- **Tailwind CSS**: Utility-first CSS framework for responsive design
-- **Framer Motion**: Advanced animations and interactions
-- **Lucide Icons**: Modern, consistent iconography
+That is the entire runtime dependency tree — no `shadcn/ui` scaffolding, no
+unused UI kit, no charting library, no form library.
 
-### Development Tools
-- ESLint for code quality
-- Prettier for consistent formatting
-- TypeScript for type safety
-- Vite for fast development and building
+---
 
-## Getting Started
+## Local development
 
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/SantiagoIP/hybrid-robot-communicator.git
-cd hybrid-robot-communicator
-```
-
-2. Install dependencies:
 ```bash
 npm install
+npm run dev          # http://localhost:8080
+npm run build        # production build to dist/
+npm run lint         # eslint
+npm run preview      # preview the built site
 ```
 
-3. Start the development server:
-```bash
-npm run dev
-```
+---
 
-4. Open your browser and visit `http://localhost:8080`
-
-## Building for Production
-
-```bash
-npm run build
-```
-
-## Project Structure
+## Project structure
 
 ```
 src/
-├── components/     # Reusable UI components
-├── pages/         # Page components
-├── assets/        # Static assets
-├── styles/        # Global styles
-└── types/         # TypeScript type definitions
+├── App.tsx                          # routes, layout shell
+├── main.tsx                         # entry
+├── index.css                        # Tailwind + minimal CSS variables + print rules
+├── components/
+│   ├── Citation.tsx                 # hover/tap citation card
+│   ├── Footer.tsx                   # global footer
+│   ├── NavBar.tsx                   # global nav
+│   ├── ProgressTracker.tsx          # stage progress bar
+│   ├── References.tsx               # full reference list (homepage)
+│   ├── StageCard.tsx                # 6 stage cards (homepage)
+│   ├── StageDetail.tsx              # per-stage details + extension
+│   ├── StageExtension.tsx           # tabs: plain language / ethics / checklist
+│   ├── StageVisualization.tsx       # picks the visualization per stage
+│   ├── ui/tabs.tsx                  # Radix Tabs wrapper (single retained shadcn primitive)
+│   └── visualization/StageCanvas.tsx  # SVG + HTML overlay primitive shared by all stages
+├── pages/
+│   ├── HomePage.tsx                 # interactive 6-stage explorer
+│   ├── AboutPage.tsx                # thesis context + Industry 5.0
+│   ├── GlossaryPage.tsx             # searchable glossary
+│   ├── ResourcesPage.tsx            # curated literature index
+│   ├── PrintPage.tsx                # printable one-pager (Save as PDF)
+│   └── NotFound.tsx                 # 404
+└── lib/
+    ├── citations.ts                 # citation registry (hover cards + page text)
+    ├── stageTokens.ts               # 6-color stage palette + helpers
+    └── utils.ts                     # `cn` className merge helper
 ```
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Author
-
-**Santiago Pavon**
-- GitHub: [SantiagoIP](https://github.com/SantiagoIP)
-- Specializing in Human-Robot Interaction, Robotics, and AI
-- Focused on growth operations and business development in technology
-
-## Acknowledgments
-
-- Inspired by research in Human-Robot Interaction
-- Built with modern web technologies
-- Designed for educational and demonstration purposes
+MIT — see [LICENSE](./LICENSE).
