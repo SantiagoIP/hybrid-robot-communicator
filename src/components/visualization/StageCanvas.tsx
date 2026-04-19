@@ -410,7 +410,7 @@ const StageCanvas: React.FC<StageCanvasProps> = ({
           {nodes.map((node, i) => (
             <motion.div
               key={`node-${node.id}`}
-              className="absolute flex flex-col items-center"
+              className="absolute"
               style={{
                 left: `${node.x}%`,
                 top: `${(node.y / 60) * 100}%`,
@@ -420,21 +420,23 @@ const StageCanvas: React.FC<StageCanvasProps> = ({
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.45, delay: 0.25 + i * 0.1 }}
             >
-              <NodeIcon kind={node.kind} pulse={node.pulse} />
-              {node.label && (
-                <div className="mt-2 px-2 py-0.5 bg-white/95 text-[10px] sm:text-xs font-medium text-gray-700 rounded-full shadow-sm border border-gray-100 whitespace-nowrap">
-                  {node.label}
-                </div>
-              )}
-              {node.caption && (
-                <motion.div
-                  className="mt-1 px-1.5 py-0.5 bg-blue-100/80 text-[10px] text-gray-700 rounded shadow-sm whitespace-nowrap"
-                  animate={{ opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 2.4, repeat: Infinity }}
-                >
-                  {node.caption}
-                </motion.div>
-              )}
+              <div className="relative flex justify-center">
+                <NodeIcon kind={node.kind} pulse={node.pulse} />
+                {node.label && (
+                  <div className="absolute left-1/2 top-full mt-2 -translate-x-1/2 px-2 py-0.5 bg-white/95 text-[10px] sm:text-xs font-medium text-gray-700 rounded-full shadow-sm border border-gray-100 whitespace-nowrap">
+                    {node.label}
+                  </div>
+                )}
+                {node.caption && (
+                  <motion.div
+                    className="absolute left-1/2 top-full mt-1 -translate-x-1/2 px-1.5 py-0.5 bg-blue-100/80 text-[10px] text-gray-700 rounded shadow-sm whitespace-nowrap"
+                    animate={{ opacity: [0.6, 1, 0.6] }}
+                    transition={{ duration: 2.4, repeat: Infinity }}
+                  >
+                    {node.caption}
+                  </motion.div>
+                )}
+              </div>
             </motion.div>
           ))}
         </div>

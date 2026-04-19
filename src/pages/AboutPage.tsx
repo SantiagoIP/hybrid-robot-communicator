@@ -52,7 +52,7 @@ const AboutPage = () => {
           >
             <h2 className="text-2xl font-bold mb-4 text-gray-800">Project Overview</h2>
             <p className="text-gray-700 mb-6">
-              This interactive visualization is the public communication layer for a master's thesis on hybrid human-machine teams in organisations. It extends the well-known industrial-HRC taxonomy of Müller, Vette &amp; Mailahn (Procedia CIRP, 2016) — cell, coexistence, synchronised, cooperation, collaboration — with a sixth stage, <em>co-evolution</em>, framed through a managerial lens.
+              This interactive visualization is the public communication layer for a master's thesis on hybrid human-machine teams in organisations. It extends the well-known industrial-HRC taxonomy of Müller, Vette &amp; Mailahn (Procedia CIRP, 2016) — cell, coexistence, synchronised, cooperation, collaboration — with a sixth stage, <em>co-evolution</em>, originally introduced in the author's 2023 KEDGE thesis as a managerial approach for hybrid teams and visualised here as the natural extension of the Müller taxonomy.
             </p>
 
             <h3 className="text-xl font-semibold mb-3 text-gray-800">Research Background</h3>
@@ -91,7 +91,7 @@ const AboutPage = () => {
             </div>
 
             <p className="text-gray-700 mb-6">
-              This site is the visual companion to the master's thesis below. The thesis introduces the &quot;co-evolution approach&quot; as a managerial frame for trust and communication inside hybrid human-machine teams, with a focus on the agribusiness sector. The interactive page generalises that framing to all six stages of the model.
+              This site is the visual companion to the master's thesis below. The thesis introduces the &quot;co-evolution approach&quot; as a managerial frame for trust and communication inside hybrid human-machine teams, with a focus on the agribusiness sector. The six-stage figure on this site is the author's adaptation of that approach: the first five stages come from Müller, Vette &amp; Mailahn (2016) as refined by Benos, Bechar &amp; Bochtis (2020); the sixth — <em>co-evolution</em> — is the author's own contribution, visualised here as the managerial endpoint of the model.
             </p>
 
             <dl className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-3 text-sm mb-6">
@@ -190,12 +190,53 @@ const AboutPage = () => {
                 Why this matters now: the Industry 5.0 framing
               </h2>
             </div>
+
+            <p className="text-gray-700 mb-4">
+              Industry 5.0 is the European Commission's policy frame for the next phase of European industry. In the 2021 brief <em>Industry 5.0: Towards a sustainable, human-centric and resilient European industry</em> (Breque, De Nul &amp; Petridis), the Commission states that:
+            </p>
+            <blockquote className="border-l-4 border-purple-300 bg-purple-50/60 pl-4 pr-3 py-2 mb-4 text-gray-800 italic">
+              &ldquo;Industry 5.0 provides a vision of industry that aims beyond efficiency and productivity as the sole goals, and reinforces the role and the contribution of industry to society.&rdquo;
+            </blockquote>
+
+            <p className="text-gray-700 mb-4">
+              The same brief defines the role of the worker inside that vision:
+            </p>
+            <blockquote className="border-l-4 border-purple-300 bg-purple-50/60 pl-4 pr-3 py-2 mb-4 text-gray-800 italic">
+              &ldquo;It places the wellbeing of the worker at the centre of the production process and uses new technologies to provide prosperity beyond jobs and growth while respecting the production limits of the planet.&rdquo;
+            </blockquote>
+
+            <p className="text-gray-700 mb-4">
+              The Commission anchors Industry 5.0 on three values — <strong>human-centric</strong>, <strong>sustainable</strong> and <strong>resilient</strong> — and on the idea that technology should serve workers rather than displace them. The 2022 follow-up <em>Industry 5.0, a transformative vision for Europe</em> goes further and asks industry to design human-machine systems where the worker keeps agency, the production system stays adaptable to shocks, and the environmental footprint stays inside planetary limits.
+            </p>
+
             <p className="text-gray-700 mb-3">
-              Industry 4.0 connected machines; Industry 5.0 reconnects humans. The European Commission and the recent literature (Pedersen et al., 2024) frame Industry 5.0 around three values — <strong>human-centric</strong>, <strong>sustainable</strong> and <strong>resilient</strong> automation — where robots are designed to amplify human creativity, judgement and well-being rather than replace them.
+              Read against this paradigm, the <em>co-evolution</em> stage of the model on this site is what the human-centric pillar looks like at the team level: humans and robots learn from each other continuously, responsibility is treated as a system-level property rather than parked on one operator, and trust becomes a measurable design outcome rather than a residual. That is the bridge between the Müller (2016) HRC taxonomy and the Industry 5.0 policy frame, and the contribution Pavon (2023) makes to it from a management standpoint.
             </p>
-            <p className="text-gray-700">
-              The co-evolution stage of this model is the natural endpoint of that paradigm: a team where humans and robots learn from each other continuously, where responsibility is shared at the system level, and where trust is treated as a measurable design outcome rather than a residual.
-            </p>
+
+            <ul className="text-sm text-gray-700 space-y-2 mt-4 border-t border-gray-200 pt-4">
+              <li>
+                <a
+                  href="https://op.europa.eu/en/publication-detail/-/publication/468a892a-5097-11eb-b59f-01aa75ed71a1/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-primary hover:underline"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                  Breque, De Nul &amp; Petridis (2021) — <em>Industry 5.0: Towards a sustainable, human-centric and resilient European industry</em>, European Commission
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://op.europa.eu/en/publication-detail/-/publication/38a2fa08-728e-11ec-9136-01aa75ed71a1/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-primary hover:underline"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                  European Commission (2022) — <em>Industry 5.0, a transformative vision for Europe</em>
+                </a>
+              </li>
+            </ul>
           </motion.section>
 
           {/* Contact */}

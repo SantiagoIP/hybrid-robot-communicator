@@ -50,9 +50,9 @@ const StageDetail: React.FC<StageDetailProps> = ({ stage, isActive }) => {
       extension: {
         analogy: {
           summary:
-            'Picture a power tool locked behind a glass guard while a person watches from the other side of the room. The machine does its job inside its own bubble, and the human only goes near it once everything is switched off.',
+            'Think of a CNC machining cell on the shop floor: the robot runs inside a fenced enclosure, the operator sets up the program, hits start, and only opens the gate once the machine is fully stopped.',
           feels:
-            'Safe but distant — the worker is an observer, not a teammate, and most of the job is programming and supervising rather than working alongside the robot.',
+            'The operator describes the robot as "the equipment", not as a teammate. Their day is built around set-up, programming and supervision, with most of the time spent outside the cell.',
         },
         ethics: [
           {
@@ -111,9 +111,9 @@ const StageDetail: React.FC<StageDetailProps> = ({ stage, isActive }) => {
       extension: {
         analogy: {
           summary:
-            'Like sharing a kitchen with a roommate who cooks at the same time as you. You both move around the same counters, you avoid each other politely, but you are not making the same dish.',
+            'A warehouse picker and an autonomous mobile robot share the same aisle. The picker walks their route, the AMR rolls its route, and both rely on sensors and floor markings to stay out of each other\'s way.',
           feels:
-            'Familiar but cautious — workers learn the robot\'s patterns the way they would learn a co-worker\'s habits, and the floor layout starts to be designed around both of you.',
+            'Workers learn the robot\'s patterns the way they learn a new colleague\'s habits. The aisle layout, the lighting and the shift schedule start to be drawn around the robot as much as around the people.',
         },
         ethics: [
           {
@@ -172,9 +172,9 @@ const StageDetail: React.FC<StageDetailProps> = ({ stage, isActive }) => {
       extension: {
         analogy: {
           summary:
-            'Like a relay race: the robot finishes its leg, drops the baton (a finished part, a status signal), and only then does the human step onto the track. The work is shared, the moment is not.',
+            'A pick-and-place robot loads a blank onto a fixture, steps back, and the operator deburrs and inspects the part before the robot picks the next one. Two pairs of hands on the same workpiece, never at the same second.',
           feels:
-            'Rhythmic — workers learn the cycle, plan their breaks around it, and feel productive when the handover is clean and frustrated when it is not.',
+            'The shift is built around the handover. The operator stops asking "what is the robot doing?" and starts asking "is my part where I expect it, in the orientation I expect it, at the second I expect it?".',
         },
         ethics: [
           {
@@ -233,9 +233,9 @@ const StageDetail: React.FC<StageDetailProps> = ({ stage, isActive }) => {
       extension: {
         analogy: {
           summary:
-            'Two cooks at the same counter, one chopping while the other fries. They are making different parts of the same meal, and they read each other\'s pace without saying a word.',
+            'On a sub-assembly station, the cobot torques the heavy bracket while the operator clips in the wiring harness next to it. Two jobs, one product, the same square metre, at the same minute.',
           feels:
-            'In flow when it works, and very disorienting when it does not — workers start to anticipate the robot\'s next move the way they would a trusted teammate\'s.',
+            'Workers start to anticipate the robot the way they anticipate a trusted line colleague: they know when it is about to reach in, when it is about to slow down, and they plan their own move around it.',
         },
         ethics: [
           {
@@ -294,9 +294,9 @@ const StageDetail: React.FC<StageDetailProps> = ({ stage, isActive }) => {
       extension: {
         analogy: {
           summary:
-            'Like two people carrying a heavy table through a doorway. One small wobble from either side and the other adjusts. The conversation is mostly through touch, weight and tiny corrections — not words.',
+            'A surgeon and a robotic arm hold the same instrument during a procedure: the surgeon leads, the arm dampens tremor and resists unsafe motion, and the result is something neither could deliver alone. The same logic applies to a technician hand-guiding a cobot through a delicate assembly.',
           feels:
-            'Surprisingly intimate — the robot becomes part of the body schema, and the worker starts to talk about it as a partner rather than a tool.',
+            'The worker stops speaking about the robot in the third person. They say "we are holding it", "we are about to cut", and they expect the system to push back if the move is wrong.',
         },
         ethics: [
           {
@@ -331,7 +331,7 @@ const StageDetail: React.FC<StageDetailProps> = ({ stage, isActive }) => {
     coevolution: {
       title: 'Co-evolution',
       description:
-        "Co-evolution extends the classic Müller (2016) taxonomy with an organisational lens introduced in the author's 2023 KEDGE thesis and now consistent with the emerging human–AI coevolution literature (Wang 2020 on symbiotic HRC; Pedreschi et al. 2024; Frontiers in AI 2025 on shared embodied cognition). At this stage, humans and robots form a single adaptive system situated in the Industry 5.0 paradigm: robots act with greater autonomy while remaining tightly coupled to humans through bidirectional learning. Responsibility, error attribution and trust become system-level properties rather than individual ones, and robots progressively emulate human preferences and communication styles to strengthen team cohesion.",
+        "Co-evolution is the author's own extension of the Müller (2016) taxonomy, originally introduced in Pavon (2023, KEDGE BS) as a managerial approach for hybrid human–machine teams in agribusiness. At this stage, humans and robots form a single adaptive system situated within the Industry 5.0 paradigm: robots act with greater autonomy while remaining tightly coupled to humans through bidirectional learning. Responsibility, error attribution and trust become system-level properties rather than individual ones, and robots progressively emulate human preferences and communication styles to strengthen team cohesion. Since the thesis was defended, the surrounding literature on symbiotic HRC (Wang 2020), human–AI coevolution (Pedreschi et al. 2024) and shared embodied cognition (Frontiers in AI 2025) has converged on similar ideas.",
       humanCapabilities: [
         'Building trust through consistent interaction',
         'Sharing responsibility for system-wide outcomes',
@@ -359,9 +359,9 @@ const StageDetail: React.FC<StageDetailProps> = ({ stage, isActive }) => {
       extension: {
         analogy: {
           summary:
-            'Less like a boss-and-tool and more like a long-running duo — a senior musician and a younger one who have played together for years. They borrow each other\'s phrasing, finish each other\'s ideas, and the team performance is something neither could produce alone.',
+            'A foreman and a senior operator who have run the line together for years: the operator no longer waits for instructions, the foreman no longer second-guesses the operator\'s choices, and the line\'s performance numbers belong to both of them. Now picture the same relationship between an agronomist and a fleet of field robots that has worked the same plot for several seasons.',
           feels:
-            'Like belonging to something — workers describe the system as "ours", not "the machine"; identity, pride and ethical weight are shared with the robot.',
+            'The system stops being "the machine over there" and starts showing up in plural in the way the team talks: "we recalibrated", "we missed the window", "we hit target". Responsibility, learning and credit are shared with the robot rather than parked next to it.',
         },
         ethics: [
           {
