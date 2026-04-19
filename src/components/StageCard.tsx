@@ -22,10 +22,20 @@ const StageCard: React.FC<StageCardProps> = ({
 }) => {
   return (
     <motion.div
+      role="button"
+      tabIndex={0}
+      aria-pressed={isActive}
+      aria-label={`Select stage: ${title}`}
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          onClick();
+        }
+      }}
       className={cn(
-        "rounded-xl p-1 cursor-pointer transition-all duration-300 ease-out",
-        isActive 
-          ? "bg-gradient-to-br from-primary/80 to-blue-500/80 shadow-lg shadow-primary/20" 
+        "rounded-xl p-1 cursor-pointer transition-all duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2",
+        isActive
+          ? "bg-gradient-to-br from-primary/80 to-blue-500/80 shadow-lg shadow-primary/20"
           : "bg-white/70 hover:bg-white/90 border border-white/40"
       )}
       onClick={onClick}

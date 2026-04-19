@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import NavBar from '@/components/NavBar';
 import StageCard from '@/components/StageCard';
 import StageVisualization from '@/components/StageVisualization';
 import StageDetail from '@/components/StageDetail';
@@ -17,6 +16,25 @@ const HomePage = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName)) {
+        return;
+      }
+      const index = stages.indexOf(currentStage);
+      if (event.key === 'ArrowRight' && index < stages.length - 1) {
+        event.preventDefault();
+        setCurrentStage(stages[index + 1]);
+      } else if (event.key === 'ArrowLeft' && index > 0) {
+        event.preventDefault();
+        setCurrentStage(stages[index - 1]);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentStage]);
 
   const handleStageClick = (stage: string) => {
     setCurrentStage(stage);
@@ -43,8 +61,6 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
-      <NavBar />
-      
       <motion.div
         className="pt-24 pb-12 px-4"
         initial={{ opacity: 0 }}
@@ -66,6 +82,9 @@ const HomePage = () => {
             </p>
             <p className="text-base text-gray-500 max-w-3xl mx-auto">
               This model illustrates the progression of human-robot interaction, from completely separate workspaces to collaborative environments where humans and robots work together on shared tasks.
+            </p>
+            <p className="text-xs text-gray-400 mt-3">
+              Tip: use the <kbd className="px-1.5 py-0.5 border border-gray-300 rounded text-[10px] font-mono">←</kbd> and <kbd className="px-1.5 py-0.5 border border-gray-300 rounded text-[10px] font-mono">→</kbd> keys to walk through the stages.
             </p>
           </motion.div>
 
@@ -119,7 +138,10 @@ const HomePage = () => {
             
             <div className="lg:col-span-2">
               <div className="glass-card rounded-xl overflow-hidden h-full">
-                <div className="h-64 bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-white/50 relative">
+                <div
+                  className="h-64 md:h-80 lg:h-96 bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-white/50 relative"
+                  aria-live="polite"
+                >
                   <AnimatePresence mode="wait">
                     <StageVisualization
                       key={currentStage}
@@ -149,13 +171,13 @@ const HomePage = () => {
           >
             <h2 className="text-2xl font-bold mb-4 text-gray-800">Understanding the Evolution</h2>
             <p className="text-gray-700 mb-4">
-              The progression from isolated robotics to co-evolutionary human-robot teams represents a significant evolution in automation technology. Each stage builds upon the previous one, enabling more sophisticated interactions and greater productivity.
+              The progression from isolated robotic cells to co-evolutionary human-robot teams reframes automation as an organisational question, not just a technical one. Each stage builds on the previous one — adding shared space, shared time, shared task, shared goal and finally shared learning between the human and the machine.
             </p>
             <p className="text-gray-700 mb-4">
-              As sensors, artificial intelligence, and robot design continue to advance, we're seeing increasingly seamless integration between humans and machines. The final co-evolution stage enables truly synergistic workflows where robots and humans not only collaborate but also evolve and adapt together over time.
+              The first five stages follow the widely cited classification by Müller, Vette &amp; Mailahn (Procedia CIRP, 2016), refined by Bdiwi et al. (2017) and Kolbeinsson et al. (2019). The sixth stage — co-evolution — sits inside the Industry 5.0 paradigm of human-centric, sustainable and resilient automation (Pedersen et al., 2024) and is consistent with recent work on symbiotic HRC (Wang et al., 2020), human–AI coevolution (Pedreschi et al., 2024) and shared embodied cognition (Frontiers in AI, 2025).
             </p>
             <p className="text-gray-700">
-              This model provides a framework for understanding not only the current state of human-robot integration in various industries but also the potential future developments in this rapidly evolving field.
+              The contribution of this site, drawn from the author's master's thesis (Pavon, 2023, KEDGE BS), is to read the model through a managerial lens — trust, communication and shared responsibility as defining variables of the human-machine team, especially in sectors like agribusiness where the next generation of cobots will land first.
             </p>
           </motion.div>
 

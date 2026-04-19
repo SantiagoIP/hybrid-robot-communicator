@@ -19,13 +19,16 @@ const App = () => (
       <Toaster />
       <Sonner />
       <Router>
-        <div className="min-h-screen bg-white text-gray-900">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+        <div className="min-h-screen bg-white text-gray-900 flex flex-col">
+          <NavBar />
+          <main className="flex-1">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/resources" element={<ResourcesPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
           <Footer />
         </div>
       </Router>

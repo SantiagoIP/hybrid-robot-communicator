@@ -22,3 +22,19 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local thesis source (served copy lives in public/thesis.pdf)
+/THESIS PAVON.pdf
+
+# Secrets / credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_*
+!id_*.md
+*.pub
+ssh-keygen*

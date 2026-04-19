@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
 
 type StageDetailProps = {
   stage: string;
@@ -133,7 +132,7 @@ const StageDetail: React.FC<StageDetailProps> = ({ stage, isActive }) => {
     },
     coevolution: {
       title: 'Co-evolution',
-      description: 'This stage represents the author\'s own conceptual model for future human-robot integration, extending beyond traditional frameworks found in current literature. In this proposed advanced stage, robots would operate with greater freedom and autonomy while maintaining strong interconnection with humans. Robots could learn and evolve in their work, leading to better performance and adaptation. The workplace would become a unified system where responsibility is shared, and errors are tracked holistically rather than being attributed to individual agents. Robots would develop the ability to emulate human preferences and communication styles, fostering improved teamwork capacity and trust-building relationships.',
+      description: 'Co-evolution extends the classic Müller (2016) taxonomy with an organisational lens introduced in the author\'s 2023 KEDGE thesis and now consistent with the emerging human–AI coevolution literature (Wang 2020 on symbiotic HRC; Pedreschi et al. 2024; Frontiers in AI 2025 on shared embodied cognition). At this stage, humans and robots form a single adaptive system situated in the Industry 5.0 paradigm: robots act with greater autonomy while remaining tightly coupled to humans through bidirectional learning. Responsibility, error attribution and trust become system-level properties rather than individual ones, and robots progressively emulate human preferences and communication styles to strengthen team cohesion.',
       humanCapabilities: [
         'Building trust through consistent interaction',
         'Sharing responsibility for system-wide outcomes',

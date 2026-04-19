@@ -1,30 +1,35 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Bot, User, ArrowRightLeft, ArrowRight, RefreshCw, Brain, Zap, Sparkles } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { motion, useReducedMotion } from 'framer-motion';
+import { Bot, User, ArrowRightLeft, RefreshCw, Brain, Sparkles } from 'lucide-react';
 
 type StageVisualizationProps = {
   stage: string;
   isActive: boolean;
 };
 
+const SPARKLE_VARIANTS = [
+  'w-3 h-3 text-purple-300',
+  'w-4 h-4 text-purple-400',
+  'w-5 h-5 text-purple-500',
+  'w-3 h-3 text-blue-300',
+  'w-4 h-4 text-blue-400',
+  'w-5 h-5 text-blue-500',
+];
+
 const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive }) => {
+  const reduceMotion = useReducedMotion();
+
   if (!isActive) return null;
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         duration: 0.5,
         staggerChildren: 0.2
       }
     }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
   // Different visualizations based on the stage
@@ -577,34 +582,39 @@ const StageVisualization: React.FC<StageVisualizationProps> = ({ stage, isActive
             </motion.div>
 
             {/* Learning and evolution particles */}
-            <motion.div className="absolute inset-0 overflow-hidden">
-              {[...Array(10)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute"
-                  initial={{ 
-                    x: Math.random() * 100 + 150, 
-                    y: Math.random() * 100 + 100,
-                    opacity: 0,
-                    scale: 0 
-                  }}
-                  animate={{ 
-                    opacity: [0, 1, 0],
-                    scale: [0, 1, 0],
-                    x: Math.random() * 200 + 100,
-                    y: Math.random() * 200 + 50
-                  }}
-                  transition={{ 
-                    duration: 3 + Math.random() * 2,
-                    repeat: Infinity,
-                    delay: Math.random() * 5,
-                    ease: "easeInOut"
-                  }}
-                >
-                  <Sparkles className={`w-${Math.floor(Math.random() * 3) + 3} h-${Math.floor(Math.random() * 3) + 3} text-${Math.random() > 0.5 ? 'purple' : 'blue'}-${Math.floor(Math.random() * 3) + 3}00`} />
-                </motion.div>
-              ))}
-            </motion.div>
+            {!reduceMotion && (
+              <motion.div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+                {[...Array(10)].map((_, i) => {
+                  const sparkleClass = SPARKLE_VARIANTS[i % SPARKLE_VARIANTS.length];
+                  return (
+                    <motion.div
+                      key={i}
+                      className="absolute"
+                      initial={{
+                        x: Math.random() * 100 + 150,
+                        y: Math.random() * 100 + 100,
+                        opacity: 0,
+                        scale: 0
+                      }}
+                      animate={{
+                        opacity: [0, 1, 0],
+                        scale: [0, 1, 0],
+                        x: Math.random() * 200 + 100,
+                        y: Math.random() * 200 + 50
+                      }}
+                      transition={{
+                        duration: 3 + Math.random() * 2,
+                        repeat: Infinity,
+                        delay: Math.random() * 5,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      <Sparkles className={sparkleClass} />
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            )}
 
             {/* Complex interconnected network lines */}
             <motion.svg 

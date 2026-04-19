@@ -1,122 +1,138 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import NavBar from '@/components/NavBar';
-import { ExternalLink, BookOpen, FileText, Video, Download, Mail } from 'lucide-react';
+import { BookOpen, FileText, Video, Download, ExternalLink } from 'lucide-react';
+
+type ResourceItem = {
+  title: string;
+  author: string;
+  year: string;
+  link: string;
+};
+
+type ResourceCategory = {
+  category: string;
+  icon: React.ReactNode;
+  items: ResourceItem[];
+};
 
 const ResourcesPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const resources = [
+  const resources: ResourceCategory[] = [
     {
-      category: 'Academic Papers',
+      category: 'Foundational papers',
       icon: <FileText className="w-5 h-5" />,
       items: [
         {
-          title: 'A Classification for the Different Methodologies in which Humans and Robots Can Work Together',
-          author: 'Müller et al.',
+          title: 'Process-oriented Task Assignment for Assembly Processes with Human-Robot Interaction',
+          author: 'Müller, R., Vette, M., & Mailahn, O.',
           year: '2016',
-          link: '#'
+          link: 'https://doi.org/10.1016/j.procir.2016.02.080',
         },
         {
-          title: 'Human-Robot Collaboration: A Literature Review and Augmented Reality Approach in Design',
-          author: 'Green et al.',
+          title: 'Human–Robot Collaboration: A Survey',
+          author: 'Bauer, A., Wollherr, D., & Buss, M.',
           year: '2008',
-          link: '#'
+          link: 'https://doi.org/10.1142/S0219843608001303',
         },
         {
           title: 'Human-Robot Interaction: A Survey',
-          author: 'Goodrich & Schultz',
+          author: 'Goodrich, M. A., & Schultz, A. C.',
           year: '2007',
-          link: '#'
+          link: 'https://doi.org/10.1561/1100000005',
         },
-        {
-          title: 'Human-Robot Collaboration in Industrial Environments',
-          author: 'Michalos et al.',
-          year: '2010',
-          link: '#'
-        }
-      ]
+      ],
     },
     {
-      category: 'Books',
+      category: 'Refinements of the taxonomy',
+      icon: <FileText className="w-5 h-5" />,
+      items: [
+        {
+          title: 'A new strategy for ensuring human safety during various levels of interaction with industrial robots',
+          author: 'Bdiwi, M., Pfeifer, M., & Sterzing, A.',
+          year: '2017',
+          link: 'https://doi.org/10.1016/j.cirp.2017.04.009',
+        },
+        {
+          title: 'Foundation for a classification of collaboration levels for human-robot cooperation in manufacturing',
+          author: 'Kolbeinsson, A., Lagerstedt, E., & Lindblom, J.',
+          year: '2019',
+          link: 'https://doi.org/10.1080/21693277.2019.1645628',
+        },
+        {
+          title: 'Symbiotic Human-Robot Collaborative Assembly',
+          author: 'Wang, L., Liu, S., Liu, H., & Wang, X. V.',
+          year: '2020',
+          link: 'https://doi.org/10.1016/j.cirp.2020.03.008',
+        },
+      ],
+    },
+    {
+      category: 'Co-evolution & Industry 5.0 (recent)',
       icon: <BookOpen className="w-5 h-5" />,
       items: [
         {
-          title: 'Human-Robot Interaction: An Introduction',
-          author: 'Christoph Bartneck et al.',
-          year: '2020',
-          link: '#'
+          title: 'Human–robot collaboration and machine learning: A systematic review of recent research',
+          author: 'Semeraro, F., Griffiths, A., & Cangelosi, A.',
+          year: '2023',
+          link: 'https://doi.org/10.1016/j.rcim.2022.102432',
         },
         {
-          title: 'The Future of Human-Robot Collaboration',
-          author: 'Julie Shah',
-          year: '2018',
-          link: '#'
+          title: 'Reviewing human-robot collaboration in manufacturing: Opportunities and challenges in the context of Industry 5.0',
+          author: 'Pedersen, M. R., et al.',
+          year: '2024',
+          link: 'https://doi.org/10.1016/j.rcim.2024.102861',
         },
         {
-          title: 'The Collaborative Robot: A Study in Human-Machine Teaming',
-          author: 'Emily Rogers',
-          year: '2019',
-          link: '#'
-        }
-      ]
+          title: 'Human–AI coevolution',
+          author: 'Pedreschi, D., Pappalardo, L., et al.',
+          year: '2024',
+          link: 'https://doi.org/10.1016/j.artint.2024.104244',
+        },
+        {
+          title: 'Mutual human–robot understanding for a robot-enhanced society: shared embodied cognition',
+          author: 'Frontiers in Artificial Intelligence',
+          year: '2025',
+          link: 'https://doi.org/10.3389/frai.2025.1608014',
+        },
+      ],
     },
     {
-      category: 'Video Lectures',
+      category: 'Video & talks',
       icon: <Video className="w-5 h-5" />,
       items: [
         {
-          title: 'Human-Robot Collaboration: Present and Future',
-          author: 'MIT OpenCourseWare',
-          year: '2021',
-          link: '#'
-        },
-        {
-          title: 'The Evolution of Collaborative Robotics',
-          author: 'Stanford Engineering',
+          title: 'The Future of Human and Robot Interaction (Davos / Webb Interview)',
+          author: 'Admoni, H.',
           year: '2020',
-          link: '#'
+          link: 'https://www.youtube.com/watch?v=2uRQXFF9VI8',
         },
-        {
-          title: 'Safety in Human-Robot Collaborative Environments',
-          author: 'Robotics Online',
-          year: '2022',
-          link: '#'
-        }
-      ]
+      ],
     },
     {
-      category: 'Case Studies',
+      category: 'This project',
       icon: <Download className="w-5 h-5" />,
       items: [
         {
-          title: 'Implementing Collaborative Robots in Automotive Manufacturing',
-          author: 'BMW Group',
-          year: '2019',
-          link: '#'
+          title: 'Managing strategic-level human-machine teams in the agribusiness sector (full thesis PDF)',
+          author: 'Pavon, S. I. — KEDGE Business School (supervisor: O. Dupouët)',
+          year: '2023',
+          link: '/hybrid-robot-communicator/thesis.pdf',
         },
         {
-          title: 'Human-Robot Teams in Healthcare Settings',
-          author: 'Mayo Clinic',
-          year: '2021',
-          link: '#'
+          title: 'Source code for this site',
+          author: 'GitHub repository',
+          year: 'ongoing',
+          link: 'https://github.com/SantiagoIP/hybrid-robot-communicator',
         },
-        {
-          title: 'Warehouse Automation: Collaborative Picking Systems',
-          author: 'Amazon Robotics',
-          year: '2020',
-          link: '#'
-        }
-      ]
-    }
+      ],
+    },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
-      <NavBar />
-      
       <motion.div
         className="pt-24 pb-12 px-4"
         initial={{ opacity: 0 }}
@@ -134,7 +150,7 @@ const ResourcesPage = () => {
               Resources
             </h1>
             <p className="text-xl text-gray-600">
-              Explore additional materials on human-robot collaboration.
+              Curated, hyperlinked literature behind the cell-to-co-evolution model.
             </p>
           </motion.div>
 
@@ -148,29 +164,43 @@ const ResourcesPage = () => {
                 transition={{ duration: 0.5, delay: 0.2 + (categoryIndex * 0.1) }}
               >
                 <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                  <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center mr-3">
                     {category.icon}
                   </div>
                   <h2 className="text-xl font-bold text-gray-800">{category.category}</h2>
                 </div>
-                
-                <div className="space-y-4 pl-13">
-                  {category.items.map((item, itemIndex) => (
-                    <motion.div
-                      key={item.title}
-                      className="border border-gray-100 rounded-lg p-4 bg-white/70 hover:bg-white transition-colors"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.3 + (categoryIndex * 0.1) + (itemIndex * 0.05) }}
-                    >
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <h3 className="font-semibold text-gray-800">{item.title}</h3>
-                          <p className="text-sm text-gray-600">{item.author} ({item.year})</p>
+
+                <div className="space-y-4">
+                  {category.items.map((item, itemIndex) => {
+                    const isExternal = item.link.startsWith('http');
+                    return (
+                      <motion.a
+                        key={item.title}
+                        href={item.link}
+                        target={isExternal ? '_blank' : undefined}
+                        rel={isExternal ? 'noopener noreferrer' : undefined}
+                        className="group block border border-gray-100 rounded-lg p-4 bg-white/70 hover:bg-white hover:border-blue-200 transition-colors"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: 0.3 + (categoryIndex * 0.1) + (itemIndex * 0.05) }}
+                      >
+                        <div className="flex justify-between items-start gap-3">
+                          <div className="min-w-0">
+                            <h3 className="font-semibold text-gray-800 group-hover:text-primary transition-colors">
+                              {item.title}
+                            </h3>
+                            <p className="text-sm text-gray-600 mt-1">
+                              {item.author} ({item.year})
+                            </p>
+                          </div>
+                          <ExternalLink
+                            className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors mt-1 flex-shrink-0"
+                            aria-hidden="true"
+                          />
                         </div>
-                      </div>
-                    </motion.div>
-                  ))}
+                      </motion.a>
+                    );
+                  })}
                 </div>
               </motion.div>
             ))}
