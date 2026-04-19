@@ -76,6 +76,14 @@ export default {
 				workspace: {
 					peach: '#ffcfab',
 					lightPeach: '#ffdec5'
+				},
+				stage: {
+					1: '#94a3b8',
+					2: '#0ea5e9',
+					3: '#6366f1',
+					4: '#14b8a6',
+					5: '#10b981',
+					6: '#8b5cf6'
 				}
 			},
 			borderRadius: {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { ArrowRight } from 'lucide-react';
+import { stageColor } from '@/lib/stageTokens';
 
 type ProgressTrackerProps = {
   stages: string[];
@@ -24,6 +24,9 @@ const ProgressTracker: React.FC<ProgressTrackerProps> = ({
   onStageClick,
 }) => {
   const currentIndex = stages.indexOf(currentStage);
+  const fillPct =
+    stages.length > 1 ? (currentIndex / (stages.length - 1)) * 100 : 0;
+  const activeColor = stageColor(currentIndex);
 
   return (
     <div
@@ -31,11 +34,11 @@ const ProgressTracker: React.FC<ProgressTrackerProps> = ({
       role="tablist"
       aria-label="Stages of human-robot integration"
     >
-      {/* Mobile: vertical stepper */}
       <ol className="flex flex-col gap-2 md:hidden">
         {stages.map((stage, index) => {
           const isActive = currentStage === stage;
           const isPast = currentIndex >= index;
+          const color = stageColor(index);
           return (
             <li key={stage}>
               <button
@@ -45,26 +48,28 @@ const ProgressTracker: React.FC<ProgressTrackerProps> = ({
                 aria-selected={isActive}
                 aria-label={`Stage ${index + 1}: ${stageNames[stage]}`}
                 className={cn(
-                  'w-full flex items-center gap-3 rounded-lg px-3 py-2 text-left transition-colors',
-                  isActive
-                    ? 'bg-primary/10 ring-1 ring-primary/40'
-                    : 'hover:bg-white/70'
+                  'w-full flex items-center gap-3 rounded-lg px-3 py-2 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60',
+                  isActive ? 'bg-white shadow-sm' : 'hover:bg-white/70'
                 )}
+                style={
+                  isActive
+                    ? { boxShadow: `inset 3px 0 0 0 ${color}` }
+                    : undefined
+                }
               >
                 <span
                   className={cn(
-                    'w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0',
-                    isPast
-                      ? 'bg-primary text-white'
-                      : 'bg-white border-2 border-gray-300 text-gray-400'
+                    'w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0 transition-colors',
+                    isPast ? 'text-white' : 'bg-white border border-gray-300 text-gray-400'
                   )}
+                  style={isPast ? { background: color } : undefined}
                 >
                   {index + 1}
                 </span>
                 <span
                   className={cn(
                     'text-sm font-medium',
-                    isActive ? 'text-primary' : 'text-gray-700'
+                    isActive ? 'text-gray-900' : 'text-gray-700'
                   )}
                 >
                   {stageNames[stage]}
@@ -75,13 +80,26 @@ const ProgressTracker: React.FC<ProgressTrackerProps> = ({
         })}
       </ol>
 
-      {/* Desktop: horizontal stepper */}
       <div className="relative hidden md:block">
-        <div className="absolute top-5 left-0 right-0 h-1 bg-gradient-to-r from-gray-200 via-blue-200 to-primary rounded-full" aria-hidden="true" />
+        <div
+          className="absolute top-5 left-0 right-0 h-1 rounded-full bg-gray-200"
+          aria-hidden="true"
+        />
+        <motion.div
+          className="absolute top-5 left-0 h-1 rounded-full"
+          aria-hidden="true"
+          initial={false}
+          animate={{
+            width: `${fillPct}%`,
+            background: `linear-gradient(90deg, ${stageColor(0)}, ${activeColor})`,
+          }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        />
         <div className="flex justify-between relative">
           {stages.map((stage, index) => {
             const isActive = currentStage === stage;
             const isPast = currentIndex >= index;
+            const color = stageColor(index);
 
             return (
               <motion.button
@@ -97,35 +115,38 @@ const ProgressTracker: React.FC<ProgressTrackerProps> = ({
               >
                 <motion.div
                   className={cn(
-                    'w-10 h-10 rounded-full flex items-center justify-center mb-2 text-lg transition-colors',
+                    'w-10 h-10 rounded-full flex items-center justify-center mb-2 text-sm font-semibold transition-colors',
                     isPast
-                      ? 'bg-primary text-white shadow-md shadow-primary/20'
+                      ? 'text-white'
                       : 'bg-white border-2 border-gray-300 text-gray-400'
                   )}
-                  animate={{ scale: isActive ? 1.2 : 1 }}
+                  animate={{ scale: isActive ? 1.18 : 1 }}
                   transition={{ duration: 0.3 }}
+                  style={
+                    isPast
+                      ? {
+                          background: color,
+                          boxShadow: isActive
+                            ? `0 6px 14px -4px ${color}`
+                            : 'none',
+                        }
+                      : undefined
+                  }
                 >
                   {index + 1}
                 </motion.div>
                 <motion.span
                   className={cn(
-                    'text-xs font-medium whitespace-nowrap',
-                    isActive ? 'text-primary' : 'text-gray-500'
+                    'text-xs font-medium whitespace-nowrap text-center',
+                    isActive ? 'text-gray-900' : 'text-gray-500'
                   )}
-                  animate={{ scale: isActive ? 1.1 : 1, opacity: isActive ? 1 : 0.7 }}
+                  animate={{
+                    scale: isActive ? 1.05 : 1,
+                    opacity: isActive ? 1 : 0.75,
+                  }}
                 >
                   {stageNames[stage]}
                 </motion.span>
-
-                {index < stages.length - 1 && (
-                  <div
-                    className="absolute top-3 left-[calc(100%+0.5rem)] hidden xl:block"
-                    style={{ transform: 'translateX(-50%)' }}
-                    aria-hidden="true"
-                  >
-                    <ArrowRight className="w-4 h-4 text-gray-400" />
-                  </div>
-                )}
               </motion.button>
             );
           })}

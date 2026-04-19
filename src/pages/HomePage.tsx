@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import StageCard from '@/components/StageCard';
 import StageVisualization from '@/components/StageVisualization';
 import StageDetail from '@/components/StageDetail';
@@ -12,6 +12,7 @@ const stages = ['cell', 'coexistence', 'synchronised', 'cooperation', 'collabora
 const HomePage = () => {
   const [currentStage, setCurrentStage] = useState('cell');
   const [isVisible, setIsVisible] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     setIsVisible(true);
@@ -60,9 +61,29 @@ const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-50 to-white">
       <motion.div
-        className="pt-24 pb-12 px-4"
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[520px]"
+        style={{
+          background:
+            'radial-gradient(ellipse 60% 60% at 20% 0%, rgba(147,197,253,0.45), transparent 60%), radial-gradient(ellipse 50% 50% at 85% 10%, rgba(167,243,208,0.45), transparent 65%), radial-gradient(ellipse 50% 50% at 50% 30%, rgba(196,181,253,0.35), transparent 70%)',
+          backgroundSize: '200% 200%',
+        }}
+        animate={
+          reduceMotion
+            ? undefined
+            : { backgroundPosition: ['0% 0%', '100% 50%', '0% 0%'] }
+        }
+        transition={
+          reduceMotion
+            ? undefined
+            : { duration: 22, repeat: Infinity, ease: 'easeInOut' }
+        }
+      />
+
+      <motion.div
+        className="relative pt-24 pb-12 px-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: isVisible ? 1 : 0 }}
         transition={{ duration: 0.5 }}
@@ -74,16 +95,16 @@ const HomePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
               <span className="text-human-darkGreen">Human</span>-<span className="text-robot-darkBlue">Robot</span> Collaboration in Teams
             </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-3">
-              Explore the evolution of human-robot collaboration from isolated operation to seamless integration.
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-3">
+              From isolated cells to co-evolving teams &mdash; the six stages of human&ndash;robot integration, read through a managerial lens.
             </p>
-            <p className="text-base text-gray-500 max-w-3xl mx-auto">
-              This model illustrates the progression of human-robot interaction, from completely separate workspaces to collaborative environments where humans and robots work together on shared tasks.
+            <p className="text-sm md:text-base text-gray-500 max-w-2xl mx-auto">
+              Pick a stage on the left to see what changes for the robot, the worker and the manager &mdash; in plain language, with the ethical questions that come with it.
             </p>
-            <p className="text-xs text-gray-400 mt-3">
+            <p className="text-xs text-gray-400 mt-4">
               Tip: use the <kbd className="px-1.5 py-0.5 border border-gray-300 rounded text-[10px] font-mono">←</kbd> and <kbd className="px-1.5 py-0.5 border border-gray-300 rounded text-[10px] font-mono">→</kbd> keys to walk through the stages.
             </p>
           </motion.div>
